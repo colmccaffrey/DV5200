@@ -5,31 +5,47 @@
     <style> 
     body {padding-left: 20; margin: 0; font-family: 'Open Sans', sans-serif;
  } 
-    input {
-      width: 438px;
-    }
+    
     h1 {
       margin-left: 50px;
       font-family: 'Open Sans', sans-serif;
       font-weight: 300;
     }
-    .slider-label {
-      position: absolute;
-      margin-top: 650px;
-      margin-left: 600px;
-    }
-
-  </style>
-    <script src="../p5.min.js"></script>
-    <script src="../addons/p5.dom.min.js"></script>
-    <script src="sketch.js"></script>
+   svg {
+    height: 600px;
+    width: 1200px;
+   }
+   .center {
+    text-align: center;
+   }
+   #slider2 {
+    text-align: center;
+    padding-left: 10rem;
+   }
    
-
+       
+  </style>
+ 
 
   </head>
   <body>
-    <h1>Met Aquisitions from 1500-2017</h1>
-    <strong class="slider-label">Acquisition Year: 1871 - 2017</strong>
- 
+    <h1>Met Acquisitions by Department and Year of Object Creation</h1>
+    <div class="legend"></div>
+  <svg></svg>
+    <div class="row center">
+      <div class="center col-sm-2">
+        <h3>Year Acquired</h3>
+        <p id="value2"></p>
+        <p>Object Created <span id="details"></span></p>
+      </div>
+      <div class="center col-sm">
+        <div id="slider2"></div>
+      </div>
+    </div>
+    <a id="setValue2" href="#">Reset</a>
+  <script src="http://d3js.org/d3.v4.min.js" charset="utf-8"></script>
+  <script src="https://unpkg.com/d3-simple-slider@0.2.0/build/d3-simple-slider.js"></script>
+  <script type="text/javascript" src="sketch.js"></script>
+
   </body>
 </html>
