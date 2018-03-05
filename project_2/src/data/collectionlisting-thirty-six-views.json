@@ -1,4 +1,6 @@
-{
+{ "results":
+	[
+	{
       "title": "Under the Wave off Kanagawa (Kanagawa oki nami ura), also known as The Great Wave, from the series Thirty-six Views of Mount Fuji (Fugaku sanjūrokkei)",
       "description": "Katsushika Hokusai (Japanese, Tokyo (Edo) 1760–1849 Tokyo (Edo))",
       "teaserText": "<p>Katsushika Hokusai (Japanese, Tokyo (Edo) 1760–1849 Tokyo (Edo)) </p><p>Date: ca. 1830–32<br/>Accession Number: JP1847</p>",
@@ -257,4 +259,5 @@
       "medium": "Polychrome woodblock print; ink and color on paper",
       "accessionNumber": "JP2964",
       "galleryInformation": "Not on view"
-    }
+    }]
+}
