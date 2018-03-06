@@ -1,0 +1,90 @@
+ body {
+    font-family: "MetSans","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16px;
+    line-height: 1.4;
+    color: #1a1a1a;
+    -webkit-font-smoothing: antialiased;
+    background-color: #212121;
+    padding-top: 50px;
+     margin: 0 auto;
+    } 
+    #container {
+       display: block;
+       margin: 0 auto;
+       width: 80%;
+       padding-left: 10%;
+    }
+    #sort-option {
+    }
+    input {
+      width: 438px;
+    }
+    h1 {
+      font-weight: 300;
+      color: #ffffff;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+     .magnify {
+      z-index: 1;
+      margin-top: 5px;
+    }
+      img.magnify.masonry{
+        margin-top: -15px;
+        margin-left: -15px;
+        width: 150px;
+        height: auto;
+       
+      }
+    /*
+    .magnify {
+      z-index: 1;
+      border-radius: 50%;
+      border: 2px solid black;
+      margin-left: 5px;
+      margin-top: -3px;
+      overflow: hidden;
+      width: 100px;
+      position: absolute;
+    }
+    
+   .image-wrapper:hover { 
+    display: block;
+    width: 100px;
+    overflow: visible;
+     }
+     */
+    .image-wrapper:hover { 
+       z-index: 1;
+      border-radius: 50%;
+      border: 2px solid black;
+      margin-left: 5px;
+      margin-top: -2px;
+      overflow: hidden;
+      width: 100px;
+     }
+
+    /*
+    .overlay:hover {
+      width: 500px;
+      height: 500px;
+      position: absolute;
+    } 
+  */
+    .masonry {
+      width: 100px;
+      height: auto;
+      overflow: hidden;
+    }
+   
+
+    .image-wrapper {
+      float: left;
+      width: auto;
+      height: 80px;
+      margin: 10px;  
+      overflow: hidden;     
+      display: inline-block;
+    }
