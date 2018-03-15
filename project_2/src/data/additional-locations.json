@@ -1,0 +1,212 @@
+ /* add met data to records
+     {
+      "title": "Barrier Town on the Sumida River, Sumida gawa Sekiya no Sato,  The area of Senjyu sekiyacho", 
+      "lat": 35.7411308,
+      "long": 139.8066101
+    },
+  
+      {
+    	"title": "Ushibori in Hitachi Province, 17 Jyoshu Ushibori, Gongenyama park, Kasumiga ura",
+    	"lat": 35.9610138,
+    	"long": 140.5139008
+    },
+
+       {
+    	"title": "29 Tokdaido Ejiri Tagonoura ryakuzu, Shore of Tago Bay",
+    	"lat": 35.1398087,
+    	"long": 138.6932526
+    },
+       {
+      "title": "Kajikazawa in Kai Province",
+      "lat": 35.6842155,
+      "long": 139.7745514
+    },
+           {
+      "title": "Umezawa in Sagami Province",
+      "lat": 35.2960548,
+      "long": 139.2523041
+    },
+  
+    ***********/
+    /*
+          {
+      "title": "addition 10 The back of the Fuji from the Minobu river, Kuon-ji Temple",
+      "lat": 35.3819962,
+      "long": 138.4248657
+    },
+ {
+      "title": "Addition 2 Mt.Fuji from Red-light district at Senju (Senju Hanamachiyori choubo no Fuji",
+      "lat": 35.7408676,
+      "long": 139.7980499
+    },
+    {
+      "title": "Dawn at Isawa in Kai Province (Kōshū Isawa no akatsuki), from the series Thirty-six Views of Mount Fuji (Fugaku sanjūrokkei)",
+      "description": "Katsushika Hokusai (Japanese, Tokyo (Edo) 1760–1849 Tokyo (Edo))",
+      "teaserText": "<p>Katsushika Hokusai (Japanese, Tokyo (Edo) 1760–1849 Tokyo (Edo)) </p><p>Date: ca. 1830–32<br/>Accession Number: JP1328</p>",
+      "url": "/art/collection/search/55286?sortBy=Relevance&amp;ao=on&amp;ft=thirty-six+views+of+mount+fuji&amp;offset=0&amp;rpp=100&amp;pos=85",
+      "image": "https://images.metmuseum.org/CRDImages/as/mobile-large/DP141014.jpg",
+      "regularImage": "as/web-additional/DP141014.jpg",
+      "largeImage": "as/web-large/DP141014.jpg",
+      "date": "ca. 1830–32",
+      "medium": "Polychrome woodblock print; ink and color on paper",
+      "accessionNumber": "JP1328",
+      "galleryInformation": "Not on view",
+      "lat": 35.6575012,
+      "long": 138.6353149
+    },
+    {
+      "title": "Fuji Seen from Kanaya on the Tōkaidō (Tōkaidō Kanaya no Fuji), from the series Thirty-six Views of Mount Fuji (Fugaku sanjūrokkei)",
+      "description": "Katsushika Hokusai (Japanese, Tokyo (Edo) 1760–1849 Tokyo (Edo))",
+      "teaserText": "<p>Katsushika Hokusai (Japanese, Tokyo (Edo) 1760–1849 Tokyo (Edo)) </p><p>Date: ca. 1830–32<br/>Accession Number: JP1294</p>",
+      "url": "/art/collection/search/55236?sortBy=Relevance&amp;ao=on&amp;ft=thirty-six+views+of+mount+fuji&amp;offset=0&amp;rpp=100&amp;pos=100",
+      "image": "https://images.metmuseum.org/CRDImages/as/mobile-large/DP141002.jpg",
+      "regularImage": "as/web-additional/DP141002.jpg",
+      "largeImage": "as/web-large/DP141002.jpg",
+      "date": "ca. 1830–32",
+      "medium": "Polychrome woodblock print; ink and color on paper",
+      "accessionNumber": "JP1294",
+      "galleryInformation": "Not on view",
+      "lat": 34.8317642,
+      "long": 138.1452637
+    }*/
+
+    /*
+    {
+      "title": "Kajikazawa in Kai Province (Kōshū Kajikazawa), from the series Thirty-six Views of Mount Fuji (Fugaku sanjūrokkei)",
+      "description": "Katsushika Hokusai (Japanese, Tokyo (Edo) 1760–1849 Tokyo (Edo))",
+      "teaserText": "<p>Katsushika Hokusai (Japanese, Tokyo (Edo) 1760–1849 Tokyo (Edo)) </p><p>Date: ca. 1830–32<br/>Accession Number: JP2986</p>",
+      "url": "/art/collection/search/39800?sortBy=Relevance&amp;ao=on&amp;ft=thirty-six+views+of+mount+fuji&amp;offset=0&amp;rpp=100&amp;pos=5",
+      "image": "https://images.metmuseum.org/CRDImages/as/mobile-large/DP141085.jpg",
+      "regularImage": "as/web-additional/DP141085.jpg",
+      "largeImage": "as/web-large/DP141085.jpg",
+      "date": "ca. 1830–32",
+      "medium": "Polychrome woodblock print; ink and color on paper",
+      "accessionNumber": "JP2986",
+      "galleryInformation": "Not on view",
+      "accurate": "false",
+      "lat": 35.4224892,
+      "long": 139.6900940
+    },
+    {
+      "title": "Fuji—The Tama River, Musashi Province, from the series Thirty-six Views of Mount Fuji (Fugaku sanjūrokkei)",
+      "description": "Katsushika Hokusai (Japanese, Tokyo (Edo) 1760–1849 Tokyo (Edo))",
+      "teaserText": "<p>Katsushika Hokusai (Japanese, Tokyo (Edo) 1760–1849 Tokyo (Edo)) </p><p>Date: ca. 1830–32<br/>Accession Number: JP3138</p>",
+      "url": "/art/collection/search/56686?sortBy=Relevance&amp;ao=on&amp;ft=thirty-six+views+of+mount+fuji&amp;offset=0&amp;rpp=100&amp;pos=7",
+      "image": "https://images.metmuseum.org/CRDImages/as/mobile-large/DP140975.jpg",
+      "regularImage": "as/web-additional/DP140975.jpg",
+      "largeImage": "as/web-large/DP140975.jpg",
+      "date": "ca. 1830–32",
+      "medium": "Polychrome woodblock print; ink and color on paper",
+      "accessionNumber": "JP3138",
+      "galleryInformation": "Not on view",
+      "accurate": "false",
+      "lat": 35.4224892,
+      "long": 139.6900940
+    }*/
+
+        {
+      "title": "Umezawa Manor in Sagami Province (Sōshū Umezawa zai),  from the series Thirty-six Views of Mount Fuji (Fugaku sanjūrokkei)",
+      "description": "Katsushika Hokusai (Japanese, Tokyo (Edo) 1760–1849 Tokyo (Edo))",
+      "teaserText": "<p>Katsushika Hokusai (Japanese, Tokyo (Edo) 1760–1849 Tokyo (Edo)) </p><p>Date: ca. 1830–32<br/>Accession Number: JP2981</p>",
+      "url": "/art/collection/search/55738?sortBy=Relevance&amp;ao=on&amp;ft=thirty-six+views+of+mount+fuji&amp;offset=0&amp;rpp=100&amp;pos=78",
+      "image": "https://images.metmuseum.org/CRDImages/as/mobile-large/DP141076.jpg",
+      "regularImage": "as/web-additional/DP141076.jpg",
+      "largeImage": "as/web-large/DP141076.jpg",
+      "date": "ca. 1830–32",
+      "medium": "Polychrome woodblock print; ink and color on paper",
+      "accessionNumber": "JP2981",
+      "galleryInformation": "Not on view",
+      "lat": 35.2960548,
+      "long": 139.2523041
+    },
+
+        {
+      "title": "Fuji from the Katakura Tea Fields in Suruga (Sunshū Katakura chaen no Fuji), from the series Thirty-six Views of Mount Fuji (Fugaku sanjūrokkei)",
+      "description": "Katsushika Hokusai (Japanese, Tokyo (Edo) 1760–1849 Tokyo (Edo))",
+      "teaserText": "<p>Katsushika Hokusai (Japanese, Tokyo (Edo) 1760–1849 Tokyo (Edo)) </p><p>Date: ca. 1830–32<br/>Accession Number: JP1333</p>",
+      "url": "/art/collection/search/55290?sortBy=Relevance&amp;ao=on&amp;ft=thirty-six+views+of+mount+fuji&amp;offset=0&amp;rpp=100&amp;pos=60",
+      "image": "https://images.metmuseum.org/CRDImages/as/mobile-large/DP141018.jpg",
+      "regularImage": "as/web-additional/DP141018.jpg",
+      "largeImage": "as/web-large/DP141018.jpg",
+      "date": "ca. 1830–32",
+      "medium": "Polychrome woodblock print; ink and color on paper",
+      "accessionNumber": "JP1333",
+      "galleryInformation": "Not on view",
+      "lat": 35.0857468,
+      "long": 138.8972778
+    },
+    {
+      "title": "Fuji from Gotenyama on the Tōkaidō at Shinagawa (Tōkaidō Shinagawa Gotenyama no Fuji), from the series Thirty-six Views of Mount Fuji (Fugaku sanjūrokkei)",
+      "description": "Katsushika Hokusai (Japanese, Tokyo (Edo) 1760–1849 Tokyo (Edo))",
+      "teaserText": "<p>Katsushika Hokusai (Japanese, Tokyo (Edo) 1760–1849 Tokyo (Edo)) </p><p>Date: ca. 1830–32<br/>Accession Number: JP1284</p>",
+      "url": "/art/collection/search/55223?sortBy=Relevance&amp;ao=on&amp;ft=thirty-six+views+of+mount+fuji&amp;offset=0&amp;rpp=100&amp;pos=62",
+      "image": "https://images.metmuseum.org/CRDImages/as/mobile-large/DP140996.jpg",
+      "regularImage": "as/web-additional/DP140996.jpg",
+      "largeImage": "as/web-large/DP140996.jpg",
+      "date": "ca. 1830–32",
+      "medium": "Polychrome woodblock print; ink and color on paper",
+      "accessionNumber": "JP1284",
+      "galleryInformation": "Not on view",
+      "lat": 35.6229553,
+      "long": 139.7353821
+    },
+        {
+      "title": "Nakahara in Sagami Province (Sōshū Nakahara), from the series Thirty-six Views of Mount Fuji (Fugaku sanjūrokkei)",
+      "description": "Katsushika Hokusai (Japanese, Tokyo (Edo) 1760–1849 Tokyo (Edo))",
+      "teaserText": "<p>Katsushika Hokusai (Japanese, Tokyo (Edo) 1760–1849 Tokyo (Edo)) </p><p>Date: ca. 1830–32<br/>Accession Number: JP1325</p>",
+      "url": "/art/collection/search/55284?sortBy=Relevance&amp;ao=on&amp;ft=thirty-six+views+of+mount+fuji&amp;offset=0&amp;rpp=100&amp;pos=18",
+      "image": "https://images.metmuseum.org/CRDImages/as/mobile-large/DP141008.jpg",
+      "regularImage": "as/web-additional/DP141008.jpg",
+      "largeImage": "as/web-large/DP141008.jpg",
+      "date": "ca. 1830–32",
+      "medium": "Polychrome woodblock print; ink and color on paper",
+      "accessionNumber": "JP1325",
+      "galleryInformation": "Not on view",
+      "lat": 35.3274994,
+      "long": 139.3496857
+    },
+        {
+      "title": "Groups of Mountain Climbers (Shojin tozan), from the series Thirty-six Views of Mount Fuji (Fugaku sanjūrokkei)",
+      "description": "Katsushika Hokusai (Japanese, Tokyo (Edo) 1760–1849 Tokyo (Edo))",
+      "teaserText": "<p>Katsushika Hokusai (Japanese, Tokyo (Edo) 1760–1849 Tokyo (Edo)) </p><p>Date: ca. 1830–32<br/>Accession Number: JP2962</p>",
+      "url": "/art/collection/search/56235?sortBy=Relevance&amp;ao=on&amp;ft=thirty-six+views+of+mount+fuji&amp;offset=0&amp;rpp=100&amp;pos=41",
+      "image": "https://images.metmuseum.org/CRDImages/as/mobile-large/DP141055.jpg ",
+      "regularImage": "as/web-additional/DP141055.jpg ",
+      "largeImage": "as/web-large/DP141055.jpg ",
+      "date": "ca. 1830–32",
+      "medium": "Polychrome woodblock print; ink and color on paper",
+      "accessionNumber": "JP2962",
+      "galleryInformation": "Not on view",
+      "lat": 111111,
+      "long": 111111
+    },
+        {
+      "title": "Tatekawa in Honjō (Honjō Tatekawa), from the series Thirty-six Views of Mount Fuji (Fugaku sanjūrokkei)",
+      "description": "Katsushika Hokusai (Japanese, Tokyo (Edo) 1760–1849 Tokyo (Edo))",
+      "teaserText": "<p>Katsushika Hokusai (Japanese, Tokyo (Edo) 1760–1849 Tokyo (Edo)) </p><p>Date: ca. 1830–32<br/>Accession Number: JP1285</p>",
+      "url": "/art/collection/search/55225?sortBy=Relevance&amp;ao=on&amp;ft=thirty-six+views+of+mount+fuji&amp;offset=0&amp;rpp=100&amp;pos=19",
+      "image": "https://images.metmuseum.org/CRDImages/as/mobile-large/DP140997.jpg",
+      "regularImage": "as/web-additional/DP140997.jpg",
+      "largeImage": "as/web-large/DP140997.jpg",
+      "date": "ca. 1830–32",
+      "medium": "Polychrome woodblock print; ink and color on paper",
+      "accessionNumber": "JP1285",
+      "galleryInformation": "Not on view",
+      "lat": 35.6918793,
+      "long": 139.8080750
+    },
+        {
+      "title": "The New Fields at Ōno in Suruga Province (Sunshū Ōno shinden), from the series Thirty-six Views of Mount Fuji (Fugaku sanjūrokkei)",
+      "description": "Katsushika Hokusai (Japanese, Tokyo (Edo) 1760–1849 Tokyo (Edo))",
+      "teaserText": "<p>Katsushika Hokusai (Japanese, Tokyo (Edo) 1760–1849 Tokyo (Edo)) </p><p>Date: ca. 1830–32<br/>Accession Number: JP2954</p>",
+      "url": "/art/collection/search/56212?sortBy=Relevance&amp;ao=on&amp;ft=thirty-six+views+of+mount+fuji&amp;offset=0&amp;rpp=100&amp;pos=76",
+      "image": "https://images.metmuseum.org/CRDImages/as/mobile-large/DP141047.jpg",
+      "regularImage": "as/web-additional/DP141047.jpg",
+      "largeImage": "as/web-large/DP141047.jpg",
+      "date": "ca. 1830–32",
+      "medium": "Polychrome woodblock print; ink and color on paper",
+      "accessionNumber": "JP2954",
+      "galleryInformation": "Not on view",
+      "lat": 35.1406326,
+      "long": 138.7181396
+    },
