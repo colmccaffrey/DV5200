@@ -1,0 +1,94 @@
+body {
+	margin: 0;
+	background-color: #000;
+	color: #000;
+	font-family: "Kepler Std";
+}
+text {
+	z-index: 1000;
+}
+div.tooltip { 
+    position: absolute;     
+    text-align: center;     
+    width: 150px;          
+    /*height: 28px;         */
+    padding: 2px;       
+    font: 12px sans-serif;    
+    background: lightgrey; 
+    border: 0px;    
+    border-radius: 8px;     
+    pointer-events: none;     
+  }
+#chart {
+	left: 100px;
+}
+
+#location {
+	position: absolute;
+	left: 20px;
+	top: 50px;
+	width: 100px;
+}
+
+h1 {
+	position: fixed;
+	z-index: 10;
+
+}
+
+a, a:hover {
+	color: steelblue;
+}
+
+
+#container {
+	position: fixed;
+	top: 0;
+	
+}
+
+#scroll-up {
+	margin-top: 100px;
+  	color: #fff;    
+}
+
+#info {
+	color: #cdcdcd;
+	position: absolute;
+	bottom: 50px;
+	left: 200px;
+	width: auto;
+}
+
+/*
+#content {
+	width: auto;
+	position: absolute;
+	left: 65%;
+	padding: 5%;
+	z-index: 3;
+}
+
+#overlay1 {
+	background-color: #000;
+	-webkit-mask-image: -webkit-gradient(linear, left top, 
+    left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,.9)));
+    z-index: 9;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100px;
+
+}
+#overlay2 {
+	background-color: #000;
+	-webkit-mask-image: -webkit-gradient(linear, left top, 
+    left bottom, from(rgba(0,0,0,.9)), to(rgba(0,0,0,0)));
+    z-index: 9;
+    position: fixed;
+    top: 100px;
+    width: 100%;
+    height: 100px;
+
+}
+*/

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <title>Walker Evans: The Life and Times</title>
+    <script type="text/javascript" src="https://d3js.org/d3.v3.js"></script>
+    <script type="text/javascript" src="http://mbostock.github.com/d3/d3.geom.js"></script>
+    <script type="text/javascript" src="http://mbostock.github.com/d3/d3.layout.js"></script>
+  </head>
+  <body>
+    <div id="body">
+      <button onclick="swarmCount(5)">Sort 5</button>
+      <button onclick="swarmCount(12)">Sort 12</button>
+      <div id="chart"></div>
+    </div>
+    <script type="text/javascript">
+
+var num_swarm = 10;
+function swarmCount(num) {
+  d3.selectAll('svg').remove();
+  num_swarm = num;
+  console.log("clicked " + num);
+  resetNodes(num_swarm);
+}
+
+var width= window.innerWidth;
+//var height=window.innerHeight/ 2;
+
+function norm() {
+  var res, i;
+  res = 0;
+  for (i = 0; i < 10; i += 1) { // sets the stretch of points on vertical axis range
+    res += Math.random()*2-1
+  }
+  return res;
+}
+
+var w = width,
+    h = 600;
+
+/*
+var nodes = [];
+
+    occ.forEach(function(o,occ_i) {
+        var curr_vals = o.values[CURR_YEAR_INDEX];
+        
+        // Get proportions from absolute counts in data.
+        var temp_data0 = value_fields.map(function(name) {
+            return curr_vals[name];
+        });
+        var total = d3.sum(temp_data0);
+        var temp_data = temp_data0.map(function(d) { return d / total; })
+
+        // Create nodes based on proportions.
+        var cnt_so_far = 0;
+        temp_data.forEach(function(d,i) {
+            var cnt = Math.round(d * n);
+            var new_nodes = d3.range(cnt).map(function() {
+                return {
+                    radius: radius,
+                    color: OCC_NAMES[o.key].color,
+                    cx: x(i),
+                    cy: y(o.key),
+                };
+            });
+            nodes = nodes.concat(new_nodes);
+            cnt_so_far += cnt;
+        });
+        OCC_NAMES[o.key].cnt = cnt_so_far;
+      */
+
+function resetNodes(num_swarm){
+var nodes =[];
+for (var j = 1; j < num_swarm; j++){
+var new_nodes = d3.range(j*10).map(function() {  // sets the # of circles to create > pull data for #
+  var true_y = (norm()* (5 * j))+ 250; // *num set distribution on y-axis+ num sets vertical axis from top > can set to variable with css
+  return {
+    radius: 5, 
+    y: true_y,
+    true_x: 100 * j,
+    true_y: true_y }
+  });
+   nodes = nodes.concat(new_nodes);
+ }
+
+
+var force = d3.layout.force()
+    .gravity(0)
+    .charge(0)
+    .friction(0.5) //intensity on  load < is better / 0.9 is default
+    .nodes(nodes)
+    .size([w, h]);
+
+var root = nodes[0];
+root.radius = 0;
+root.fixed = true;
+
+force.start();
+
+var svg = d3.select("#chart").append("svg:svg")
+    .attr("width", w)
+    .attr("height", h);
+
+svg.selectAll("circle")
+    .data(nodes)
+    .enter().append("svg:circle")
+    .attr("r", function(d) { return d.radius; })
+    .style("fill", 'black')
+    //.style("stroke", "black");
+
+
+force.on("tick", function(e) {
+  var q,
+    node,
+    i = 0,
+    n = nodes.length;
+    
+  var q = d3.geom.quadtree(nodes);
+
+  while (++i < n) {
+    node = nodes[i];
+    q.visit(collide(node));
+    xerr = node.x - node.true_x;
+    yerr = node.y - node.true_y;
+   // node.x -= xerr*0.005;
+    node.x -= xerr*0.02; //distribution distance x 
+    node.y -= yerr*0.05; //distribution distance y
+  }
+  
+
+
+ svg.selectAll("circle")
+      .attr("cx", function(d) { return d.x; })
+      .attr("cy", function(d) { return d.y; });
+
+});
+}
+
+function collide(node) {
+  var r = node.radius,
+    nx1,
+    nx2,
+    ny1,
+    ny2,
+    xerr,
+    yerr;
+    
+  nx1 = node.x - r;
+  nx2 = node.x + r;
+  ny1 = node.y - r;
+  ny2 = node.y + r;
+      
+  return function(quad, x1, y1, x2, y2) {
+    if (quad.point && (quad.point !== node)) {
+      var x = node.x - quad.point.x,
+          y = node.y - quad.point.y,
+          l = Math.sqrt(x * x + y * y),
+          r = node.radius + quad.point.radius;
+      if (l < r) {
+        // we're colliding.
+        var xnudge, ynudge, nudge_factor;
+        nudge_factor = (l - r) / l * .4;
+        xnudge = x*nudge_factor;
+        ynudge = y*nudge_factor;
+        node.x -= xnudge;
+        node.y -= ynudge;
+        quad.point.x += xnudge;
+        quad.point.y += ynudge;
+      }
+    }
+    return x1 > nx2
+        || x2 < nx1
+        || y1 > ny2
+        || y2 < ny1;
+  };
+}
+
+
+    </script>
+
+  </body>
+</html>

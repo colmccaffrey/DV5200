@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <title>Walker Evans</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" href="https://use.typekit.net/upc5njf.css">    
+    <script type="text/javascript" src="https://d3js.org/d3.v3.js"></script>
+    <script type="text/javascript" src="http://mbostock.github.com/d3/d3.geom.js"></script>
+    <script type="text/javascript" src="http://mbostock.github.com/d3/d3.layout.js"></script>
+    <script src="js/load.js"></script>
+
+  </head>
+  <body>
+    <div id="body">
+      <button onclick="swarmCount(twenties,1920)">1920's</button>
+      <button onclick="swarmCount(thirties,1930)">1930's</button>
+      <button onclick="swarmCount(forties,1940)">1940's</button>
+      <button onclick="swarmCount(fifties,1950)">1950's</button>
+      <button onclick="swarmCount(sixties,1960)">1960's</button>
+      <button onclick="swarmCount(seventies,1970)">1970's</button>
+      <button onclick="setNodes(allYears)">All Decades</button>
+      <div id="chart"></div>
+      <ul id="location">
+        <li><button onclick="showLocation('.cuba', 1)">Cuba</button></li>
+        <li><button onclick="showLocation('.wva-penn')">West Virgina & Pennsylvania</button></li>
+        <li><button onclick="showLocation('.alabama')">Alabama</button></li>
+        <li><button onclick="showLocation('.newyork', 0)">New York</button></li>
+        </br>
+        <li><button onclick="showLocation('.staff')">Fortune & Times Magazine</button></li>
+        <li><button onclick="showLocation('.fsa')">Resettlement/ FSA</button></li>
+        <li><button onclick="showLocation('.yale')">Yale Professor</button></li>
+      </br>
+      <hr>
+      <li><button onclick="reset()">reset</button></li>
+      </ul>
+      <div id="info"></div>
+    </div>
+    <script src="js/cluster.js"></script>
+</body>
+</html>
