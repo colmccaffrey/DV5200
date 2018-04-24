@@ -5,9 +5,20 @@ var fifties = [];
 var sixties = [];
 var seventies = [];
 var allYears = [];
+var barCounts = [];
+
+
+  d3.csv("data/object_counts.csv", function(counts){
+   for (var i=0; i < counts.length; i ++){
+    barCounts.push(counts[i]);
+   }
+   objectBars(counts);
+  });
+
 
   d3.csv("data/evans-objects-title.csv", function(data){
      for (var i=0; i < data.length; i ++){
+      console.log("records " + data.length);
       allYears.push(data[i]);
       if (data[i].value < 1930) {
         twenties.push(data[i]);
@@ -28,12 +39,10 @@ var allYears = [];
       }
     }
     setNodes(allYears);
-
     //resetNodes(allYears);
-    console.log(allYears.length);
+    //console.log(allYears.length);
     //console.log("length " + twenties[3].value);
   });
-
 
 
 
@@ -50,9 +59,57 @@ function norm() {
 } 
 
 var w = width,
-    h = 600;
+    h = 500;
 
+function showType(type) {
+  var name = type;
+  d3.selectAll('circle')
+      .transition()
+      .attr("delay", 1000)
+      .attr("duration", 1000)
+      //.attr("cy", 400)
+      .style('fill', function(d){
+    //console.log(" clciked- obejcet " + d[i].type + " name: " + name);
+    //console.log( "i = " + i + " d = "+d.type);
+      if (name == d.type) { 
+        console.log("type" + d.type);
+        //console.log(" clciked- obejcet " + d.type + " name: " + name);
+        return "#fff";
+      }
+    })
+}
 
+function objectBars(barcount) {
+  //console.log("objectebars")
+  barcount.forEach(function(d, i) { 
+    console.log(d.object + " " + i + " " + d.count); 
+
+  d3.select('#bar-counts')
+   .append('li')
+   .style({width:  (d.count/20 + 2) + 'px', height: 10 + 'px'})
+   .style('background-color', function(d){
+      var value = Math.random() * 0xFF | 0;
+      var grayscale = (value << 16) | (value << 8) | value;
+      var color = '#' + grayscale.toString(16);
+      return color;
+   })
+   .style('display', 'inline-block') 
+   .on("mouseover", function(){
+    d3.selectAll('.name-count').remove()
+    d3.select("#name")
+    .append('h2')
+    .style('text-transform', 'uppercase')
+    .attr('class', 'name-count')
+    .text(d.object + "s" + " " + d.count)
+    console.log("this type" + d.object)
+   })
+   .on("click", function(){
+      showType(d.object);
+   })
+   //.text(d.object)
+   });
+  
+}
 
 function setNodes(current){ //array of data for decade/location pressed
 d3.selectAll('svg').remove();
@@ -68,7 +125,7 @@ var new_nodes = d3.range(1).map(function() {  // sets the # of circles to create
  //console.log("current  + j " + current[j].id + j);
   var x_offset = ((current[j].value - 1900) * 18); // x offset for decade sort
   //var x_offset = (current[j].value - 1920) * 100;  //offset for years - set variable for decade call
-  console.log("offset" + x_offset);
+  //console.log("offset" + x_offset);
   var true_y = (norm()* 50)+ 300; // *num set distribution on y-axis+ num sets vertical axis from top > can set to variable with css
   return {
     year: current[j].value,
@@ -77,8 +134,7 @@ var new_nodes = d3.range(1).map(function() {  // sets the # of circles to create
     title: current[j].title,
     radius: 1.2, 
     y: true_y,
-    true_x: x_offset - 200,
-    //true_x: (current[j].value-1700),
+    true_x: x_offset - 100,
     true_y: true_y }
   });
    nodes = nodes.concat(new_nodes);
@@ -126,8 +182,10 @@ svg.selectAll("circle")
           return "cuba";    
         } else if (d.year == 1936) {
           return "alabama";
-        } else if (d.year == 1941 ) {
+        } else if (d.year == 1965 ) {
           return "yale";
+        } else if (d.year == 1931 ) {
+          return "brooklyn";
         }
       })
 
@@ -202,9 +260,9 @@ function collide(node) {
      if (l < r) {
         // we're colliding.
         var xnudge, ynudge, nudge_factor;
-        nudge_factor = (l - r) / l * .2; //change from .4 > this is speed of settle
-        xnudge = x*nudge_factor;
-        ynudge = y*nudge_factor;
+        nudge_factor = (l - r) / l * .004; //change from .4 > this is speed of settle
+        xnudge = x*=nudge_factor;
+        ynudge = y*=nudge_factor;
         node.x -= xnudge;
         node.y -= ynudge;
         quad.point.x += xnudge;
@@ -218,3 +276,9 @@ function collide(node) {
   };
 }
 
+/* select current class
+d3.selectAll(".button").on("click", function() {
+    CURR_YEAR_INDEX = d3.select(this).attr("data-val");
+    d3.select(".current").classed("current", false);
+    d3.select(this).classed("current", true);
+*/

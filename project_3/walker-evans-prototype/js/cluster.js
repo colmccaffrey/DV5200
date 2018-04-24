@@ -18,14 +18,87 @@ var allYears = [];
   });
 
 */
+///////////////////
+/*
+cuba
+west virginia/pennsylvania
+alabama
+new york
 
-var content = ["this is text for info div", "content 2"];
+resettlement/ fsa
+fortune and times magazine
+yale professor
+
+Negative,6037
+Polaroid,2556
+Photograph,594
+Glass Negative,92----
+Manuscript Materials,117
+Transparency,91 -----
+Diary & Appointment Book,39
+Album,36
+Letters & Correspondence,35
+Postcard,18
+Ephemera,16
+//
+Painting,16
+Drawing,15
+Contact Sheet,14
+Books,9
+Address Book,7
+Periodical,6
+Photobooth Strip,6
+Notebook,4
+*/
+/*
+
+var content = ["1930, he published three photographs (Brooklyn Bridge) in the poetry book The Bridge by Hart Crane. In 1931, he made a photo series of Victorian houses in the Boston vicinity sponsored by Lincoln Kirstein.",
+"In 1935, Evans spent two months at first on a fixed-term photographic campaign for the Resettlement Administration (RA) in West Virginia and Pennsylvania. From October on, he continued to do photographic work for the RA and later the Farm Security Administration (FSA), primarily in the Southern United States. <a href='https://www.youtube.com/watch?v=DlXfbixbGG8' target='_blank'>Evans in his own words</a>",
+"In the summer of 1936, while on leave from the FSA, he and writer James Agee were sent by Fortune magazine on assignment to Hale County, Alabama, for a story the magazine subsequently opted not to run. The photographs later became a book ***","1938 In 1938, Evans also took his first photographs in the New York subway with a camera hidden in his coat. These would be collected in book form in 1966 under the title Many are Called. Exhibition Walker Evans: American Photographs, was held at The Museum of Modern Art, New York. This was the first exhibition in the museum devoted to the work of a single photographer. The catalogue included an accompanying essay by Lincoln Kirstein, whom Evans had befriended in his early days in New York.", 
+"Evans was a passionate reader and writer, and in 1945 became a staff writer at Time magazine. Shortly afterward he became an editor at Fortune magazine through 1965. That year, he became a professor of photography on the faculty for Graphic Design at the Yale University School of Art.",
+"1965 Evans was a passionate reader and writer, and in 1945 became a staff writer at Time magazine. Shortly afterward he became an editor at Fortune magazine through 1965. That year, he became a professor of photography on the faculty for Graphic Design at the Yale University School of Art.",
+"1936 The three families headed by Bud Fields, Floyd Burroughs and Frank Tingle, lived in the Hale County town of Akron, Alabama, and the owners of the land on which the families worked told them that Evans and Agee were 'Soviet agents,'although Allie Mae Burroughs, Floyds wife, recalled during later interviews her discounting that information. Evanss photographs of the families made them icons of Depression-Era misery and poverty. In September 2005, Fortune revisited Hale County and the descendants of the three families for its 75th anniversary issue.",
+"1971 The first definitive retrospective of his photographs, which 'individually evoke an incontrovertible sense of specific places, and collectively a sense of America,'' according to a press release, was on view at New York's Museum of Modern Art in early 1971. Selected by John Szarkowski, the exhibit was titled simply Walker Evans. - cincinnati art musem's exhibit with photgraphs from 30's. 40's. 50's, 60's","1973 In 1973 and 1974, he also shot a long series with the then-new Polaroid SX-70 camera, after age and poor health had made it difficult for him to work with elaborate equipment.",
+"In 1941, Evans's photographs and Agee's text detailing the duo's stay with three white tenant families in southern Alabama during the Great Depression were published as the groundbreaking book Let Us Now Praise Famous Men. Its detailed account of three farming families paints a deeply moving portrait of rural poverty. The critic Janet Malcolm notes that as in the earlier Beals' book there was a contradiction between a kind of anguished dissonance in Agee's prose and the quiet, magisterial beauty of Evans's photographs of sharecroppers. ",
+"In 1994, The Estate of Walker Evans handed over its holdings to New York City's The Metropolitan Museum of Art.[15] The Metropolitan Museum of Art is the sole copyright holder for all works of art in all media by Walker Evans. The only exception is a group of approximately 1,000 negatives in collection of the Library of Congress which were produced for the Resettlement Administration (RA) / Farm Security Administration (FSA). Evans's RA / FSA works are in the public domain.[16]","In 2000, Evans was inducted into the St. Louis Walk of Fame",
+"1937- Cuba  His photographs documented street life, the presence of police, beggars and dockworkers in rags, and other waterfront scenes. He also helped Hemingway acquire photos from newspaper archives that documented some of the political violence Hemingway described in To Have and Have Not (1937). Fearing that his photographs might be deemed critical of the government and confiscated by Cuban authorities, he left 46 prints with Hemingway. He had no difficulties when returning to the United States, and 31 of his photos appeared in Beals' book. The cache of prints left with Hemingway was discovered in Havana in 2002 and exhibited at an exhibition in Key West. 2) Evans rarely spent time in the darkroom making prints from his own negatives. He only very loosely supervised the making of prints of most of his photographs, sometimes only attaching handwritten notes to negatives with instructions on some aspect of the printing procedure."];
+*/
+
+var content = ["The Walker Evans Collection at the Metropolitan Museum of Art has 9726 pieces of work spanning 5 decades.",
+"Evans published three photographs (Brooklyn Bridge) in the poetry book The Bridge by Hart Crane. In 1931, he made a photo series of Victorian houses in the Boston vicinity sponsored by Lincoln Kirstein.",
+"In 1935, Evans spent two months at first on a fixed-term photographic campaign for the Resettlement Administration (RA) in West Virginia and Pennsylvania. From October on, he continued to do photographic work for the RA and later the Farm Security Administration (FSA), primarily in the Southern United States. The photos were later published",
+"In the summer of 1936, while on leave from the FSA, he and writer James Agee were sent by Fortune magazine on assignment to Hale County, Alabama, for a story the magazine subsequently opted not to run. The photographs later became a groundbreaking book, 'Let Us Now Praise Famous Men' (1941). Its detailed account of three farming families paints a deeply moving portrait of rural poverty.",
+"In 1938, Evans took his first photographs in the New York subway with a camera hidden in his coat. These would be collected in book form in 1966 under the title 'Many are Called'. Exhibition Walker Evans: American Photographs, was held at The Museum of Modern Art, New York. This was the first exhibition in the museum devoted to the work of a single photographer. The catalogue included an accompanying essay by Lincoln Kirstein, whom Evans had befriended in his early days in New York.", 
+"Evans was a passionate reader and writer, and in 1945 became a staff writer at Time magazine. Shortly afterward he became an editor at Fortune magazine through 1965. That year, he became a professor of photography on the faculty for Graphic Design at the Yale University School of Art.",
+"1936 The three families headed by Bud Fields, Floyd Burroughs and Frank Tingle, lived in the Hale County town of Akron, Alabama, and the owners of the land on which the families worked told them that Evans and Agee were 'Soviet agents,'although Allie Mae Burroughs, Floyds wife, recalled during later interviews her discounting that information. Evans photographs of the families made them icons of Depression-Era misery and poverty. In September 2005, Fortune revisited Hale County and the descendants of the three families for its 75th anniversary issue",
+"The first definitive retrospective of his photographs, which 'individually evoke an incontrovertible sense of specific places, and collectively a sense of America,'' according to a press release, was on view at New York's Museum of Modern Art in early 1971. Selected by John Szarkowski, the exhibit was titled simply Walker Evans. - cincinnati art musem's exhibit with photgraphs from 30's. 40's. 50's, 60's. In 1973 and 1974, he also shot a long series with the then-new Polaroid SX-70 camera, after age and poor health had made it difficult for him to work with elaborate equipment.",
+"Evans photographs documented street life, the presence of police, beggars and dockworkers in rags, and other waterfront scenes. He also helped Hemingway acquire photos from newspaper archives that documented some of the political violence Hemingway described in To Have and Have Not (1937). Fearing that his photographs might be deemed critical of the government and confiscated by Cuban authorities, he left 46 prints with Hemingway. He had no difficulties when returning to the United States, and 31 of his photos appeared in Beals' book. The cache of prints left with Hemingway was discovered in Havana in 2002 and exhibited at an exhibition in Key West. 2) Evans rarely spent time in the darkroom making prints from his own negatives. He only very loosely supervised the making of prints of most of his photographs, sometimes only attaching handwritten notes to negatives with instructions on some aspect of the printing procedure.",
+"In one of his last photographic projects, Evans completed a black and white portfolio of Brown Brothers Harriman & Co.'s offices and partners for publication in 'Partners in Banking,' published in 1968 to celebrate the private bank's 150th anniversary."]
+
 
 function reset() {
   d3.selectAll("circle")
     .style("fill", "#cdcdcd")
   d3.selectAll('p').remove();
 
+}
+function showType(type) {
+  var name = type;
+  d3.selectAll('circle')
+      .style('fill', '#212121')
+      .transition()
+      .attr("delay", 1000)
+      .attr("duration", 1000)
+      //.attr("cy", 400)
+      .style('fill', function(d){
+    //console.log(" clciked- obejcet " + d[i].type + " name: " + name);
+    //console.log( "i = " + i + " d = "+d.type);
+      if (name == d.type) { 
+        console.log("type" + d.type);
+        //console.log(" clciked- obejcet " + d.type + " name: " + name);
+        return "#fff";
+      }
+    })
 }
 
 function showLocation(loc, index) { //run function on current svg loaded
@@ -40,12 +113,13 @@ function showLocation(loc, index) { //run function on current svg loaded
         .style("fill", "#212121")
     d3.selectAll(loc)
         .style("fill", "#fff")
-        showWork(loc);
+        //showWork(loc);
     }
-
+/*
   function showWork(loc) {
     console.log("show work from " + loc);
   }
+  */
 
 //console.log("other decades " + years);
 var num_swarm = 10;
@@ -75,7 +149,7 @@ function norm() {
 } 
 
 var w = width,
-    h = 600;
+    h = 500;
 
 
 function resetNodes(current, decade){ //array of data for decade/location pressed
@@ -100,7 +174,7 @@ var new_nodes = d3.range(1).map(function() {  // sets the # of circles to create
     title: current[j].title,
     radius: 1.8, 
     y: true_y,
-    true_x: 200 + x_offset,
+    true_x: 350 + x_offset,
     //true_x: (current[j].value-1700),
     true_y: true_y }
   });
@@ -144,7 +218,7 @@ svg.selectAll("circle")
     .attr("class", function(d) {
       if (d.year > 1938 && d.year <= 1941) {
         return "newyork" ;
-      } else if (d.year >= 1943 && d.year <= 1965) {
+      } else if (d.year >= 1943 && d.year < 1965) {
         return "staff";
       } else if (d.year == 1935 || d.year == 1937 || d.year == 1938){
         return "fsa";
@@ -154,8 +228,10 @@ svg.selectAll("circle")
         return "cuba";    
       } else if (d.year == 1936) {
         return "alabama";
-      } else if (d.year == 1941 ) {
+      } else if (d.year == 1965 ) {
       return "yale";
+      } else if (d.year == 1931 ) {
+      return "brooklyn";
       }
     })
 
@@ -228,7 +304,7 @@ function collide(node) {
       if (l < r) {
         // we're colliding.
         var xnudge, ynudge, nudge_factor;
-        nudge_factor = (l - r) / l * .2;
+        nudge_factor = (l - r) / l * .04;
         xnudge = x*nudge_factor;
         ynudge = y*nudge_factor;
         node.x -= xnudge;

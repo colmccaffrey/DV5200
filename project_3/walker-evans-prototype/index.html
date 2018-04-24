@@ -13,29 +13,54 @@
   </head>
   <body>
     <div id="body">
-      <button onclick="swarmCount(twenties,1920)">1920's</button>
-      <button onclick="swarmCount(thirties,1930)">1930's</button>
-      <button onclick="swarmCount(forties,1940)">1940's</button>
-      <button onclick="swarmCount(fifties,1950)">1950's</button>
-      <button onclick="swarmCount(sixties,1960)">1960's</button>
-      <button onclick="swarmCount(seventies,1970)">1970's</button>
-      <button onclick="setNodes(allYears)">All Decades</button>
-      <div id="chart"></div>
+      <div id="sidebar">
+      <h1>Walker</br>Evans</h1>
       <ul id="location">
-        <li><button onclick="showLocation('.cuba', 1)">Cuba</button></li>
-        <li><button onclick="showLocation('.wva-penn')">West Virgina & Pennsylvania</button></li>
-        <li><button onclick="showLocation('.alabama')">Alabama</button></li>
-        <li><button onclick="showLocation('.newyork', 0)">New York</button></li>
+              <h2>the notable works</h2>
+        <li class="side"><button  onclick="showLocation('.brooklyn',1)">Brooklyn</button></li>
+        <li class="side"><button  onclick="showLocation('.cuba',8)">Cuba</button></li>
+        <li class="side" ><button onclick="showLocation('.wva-penn',2)">West Virgina & Pennsylvania</button></li>
+        <li class="side"><button  onclick="showLocation('.alabama',3)">Alabama</button></li>
+        <li  class="side"><button onclick="showLocation('.newyork',4)">New York</button></li>
         </br>
-        <li><button onclick="showLocation('.staff')">Fortune & Times Magazine</button></li>
-        <li><button onclick="showLocation('.fsa')">Resettlement/ FSA</button></li>
-        <li><button onclick="showLocation('.yale')">Yale Professor</button></li>
+        <li class="side"><button  onclick="showLocation('.staff',5)">Fortune & Times Magazine</button></li>
+        <li class="side"><button  onclick="showLocation('.fsa',2)">Resettlement/ FSA</button></li>
+        <li class="side"><button  onclick="showLocation('.yale',5)">Yale Professor</button></li>
       </br>
-      <hr>
-      <li><button onclick="reset()">reset</button></li>
+      <li class="side"><button onclick="reset()">reset</button></li>
+      <!--<li><button onclick="showType('Negative')">sort by type</button></li>-->
       </ul>
-      <div id="info"></div>
+    </div>
+      <div id="decades">
+        <button class="btn active" style="margin-left: 0px; margin-right: 0px" onclick="setNodes(allYears)">All</button>
+        <button class="btn" onclick="swarmCount(twenties,1920)">1920's</button>
+        <button class="btn" onclick="swarmCount(thirties,1930)">1930's</button>
+        <button class="btn" onclick="swarmCount(forties,1940)">1940's</button>
+        <button class="btn" onclick="swarmCount(fifties,1950)">1950's</button>
+        <button class="btn" onclick="swarmCount(sixties,1960)">1960's</button>
+        <button class="btn" style="margin-right: 0px" onclick="swarmCount(seventies,1970)">1970's</button>
+      </div>
+      <div id="chart"></div>
+      <div id="name"><h2 class="name-count">The Collection</h2></div>
+      <div id="bar-counts"></div>
+      <div id="info">
+        <p>In 1994, The Estate of Walker Evans handed over its holdings to New York City's The Metropolitan Museum of Art. The Metropolitan Museum of Art is the sole copyright holder for <a href="https://www.metmuseum.org/art/collection/search#!?q=walker%20evans&perPage=20&showOnly=withImage&sortBy=Relevance&sortOrder=asc&offset=0&pageSize=0" target="_blank">all works of art in all media by Walker Evans</a>. The only exception is a group of approximately <a href="http://www.loc.gov/pictures/search/?q=walker+evans&st=gallery" target="_blank">1,000 negatives in collection of the Library of Congress</a> which were produced for the Resettlement Administration (RA) / Farm Security Administration (FSA). Evans's RA / FSA works are in the public domain.
+        </p>
+      </div>
     </div>
     <script src="js/cluster.js"></script>
+    <script>
+    // Add active class to the current button (highlight it)
+    var header = document.getElementById("decades");
+    var btns = header.getElementsByClassName("btn");
+    for (var i = 0; i < btns.length; i++) {
+      btns[i].addEventListener("click", function() {
+        var current = document.getElementsByClassName("active");
+        current[0].className = current[0].className.replace(" active", "");
+        this.className += " active";
+      });
+    }
+
+    </script>
 </body>
 </html>
