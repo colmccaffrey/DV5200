@@ -232,6 +232,8 @@ svg.selectAll("circle")
       return "yale";
       } else if (d.year == 1931 ) {
       return "brooklyn";
+      } else if (d.year == 1973 || d.year == 1974) {
+      return "later";
       }
     })
 

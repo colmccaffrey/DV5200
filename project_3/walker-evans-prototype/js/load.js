@@ -183,9 +183,11 @@ svg.selectAll("circle")
         } else if (d.year == 1936) {
           return "alabama";
         } else if (d.year == 1965 ) {
-          return "yale";
+        return "yale";
         } else if (d.year == 1931 ) {
-          return "brooklyn";
+        return "brooklyn";
+        } else if (d.year == 1973 || d.year == 1974) {
+        return "later";
         }
       })
 
