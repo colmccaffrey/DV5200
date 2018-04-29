@@ -79,6 +79,8 @@ var content = ["The Walker Evans Collection at the Metropolitan Museum of Art ha
 function reset() {
   d3.selectAll("circle")
     .style("fill", "#cdcdcd")
+    .attr("visibility", "visible")
+    .attr("r", function(d){ return d.radius; });
   d3.selectAll('p').remove();
 
 }
@@ -98,11 +100,14 @@ function showType(type) {
         //console.log(" clciked- obejcet " + d.type + " name: " + name);
         return "#fff";
       }
+
     })
 }
 
 function showLocation(loc, index) { //run function on current svg loaded
   console.log("clicked loc " + loc);
+  var newRadius = 3.2;
+  var radius = 0;
     d3.selectAll('p').remove();
     d3.select('#info')
     .append('p')
@@ -110,9 +115,17 @@ function showLocation(loc, index) { //run function on current svg loaded
     //.html(content.join('<br/>'));
 
     d3.selectAll("circle")
-        .style("fill", "#212121")
+        .attr("visibility", "hidden")
+
     d3.selectAll(loc)
-        .style("fill", "#fff")
+        .transition()
+        .delay(200)
+        .duration(500) 
+        .style("fill", "#cdcdcd")
+        .style("z-index", "10000")
+        .attr("visibility", "visible")
+        .attr("r", function(d) { return newRadius; })
+
         //showWork(loc);
     }
 /*
@@ -124,16 +137,35 @@ function showLocation(loc, index) { //run function on current svg loaded
 //console.log("other decades " + years);
 var num_swarm = 10;
 var decade = 1900;
+var content;
+
 function swarmCount(num, year) {
   d3.selectAll('svg').remove();
   num_swarm = num;
-  decade = year;
+  decade = +year;
   //console.log("twenties.length" + twenties.length);
   //console.log("clicked " + num);
   resetNodes(num_swarm, decade);
-  console.log("20s " + twenties.length);
+  createSubNav(decade);
+  //console.log("20s " + twenties.length);
+
 }
 
+
+function createSubNav(year) {
+    d3.selectAll('.subnav').remove();
+     var i;
+     for (i=0; i < 10; i++){
+     // content = year + 1
+     // console.log("decade " + year + 1)
+      d3.select('#year-nav')
+      .append("li")
+      .html(year + i)
+      .attr("class", "subnav");
+    }
+
+   // }
+}
 
 
 var width= window.innerWidth;
@@ -149,7 +181,7 @@ function norm() {
 } 
 
 var w = width,
-    h = 500;
+    h = 600;
 
 
 function resetNodes(current, decade){ //array of data for decade/location pressed
@@ -172,7 +204,7 @@ var new_nodes = d3.range(1).map(function() {  // sets the # of circles to create
     type: current[j].id,
     object: current[j].object,
     title: current[j].title,
-    radius: 1.8, 
+    radius: 2.2, 
     y: true_y,
     true_x: 350 + x_offset,
     //true_x: (current[j].value-1700),
@@ -216,46 +248,93 @@ svg.selectAll("circle")
     .style("fill", "#cdcdcd")
     .style("stroke", "black")
     .attr("class", function(d) {
-      if (d.year > 1938 && d.year <= 1941) {
-        return "newyork" ;
-      } else if (d.year >= 1943 && d.year < 1965) {
-        return "staff";
-      } else if (d.year == 1935 || d.year == 1937 || d.year == 1938){
-        return "fsa";
-      } else if (d.year > 1933 && d.year < 1936) {
-      return "wva-penn";
-      } else if (d.year == 1933) {
-        return "cuba";    
-      } else if (d.year == 1936) {
-        return "alabama";
-      } else if (d.year == 1965 ) {
-      return "yale";
-      } else if (d.year == 1931 ) {
-      return "brooklyn";
-      } else if (d.year == 1973 || d.year == 1974) {
-      return "later";
-      }
-    })
-
+      if (d.title.match(/(New York)\b/g)) {
+           return "newyork" ;
+        } else if (d.title.match(/(Alabama)\b/g)) {
+           return "alabama" ;
+        }  else if (d.title.match(/(Havana)\b/g) || d.title.match(/(Cuba)\b/g) ) {
+           return "cuba" ;
+        }  else if (d.title.match(/(New Orleans)\b/g) || d.title.match(/(Louisiana)\b/g)) {
+           return "louisiana" ;
+        }  else if (d.title.match(/(Florida)\b/g)) {
+           return "florida" ;
+        }  else if (d.title.match(/(Mississippi)\b/g)) {
+           return "mississippi" ;
+        }  else if (d.title.match(/(Connecticut)\b/g)) {
+           return "connecticut" ;
+        }  else if (d.title.match(/(Pennsylvania)\b/g) || d.title.match(/(West Virginia)\b/g)) {
+           return "fsa" ;
+         } else if (d.title.match(/(Brooklyn)\b/g)) {
+           return "brooklyn" ;
+        } else if (d.title.match(/(Yale)\b/g)) {
+            return "yale" ;
+         }  else if (d.title.match(/(Fortune)\b/g) || d.title.match(/(Fortune Magazine)\b/g) || d.title.match(/(Times)\b/g) || d.title.match(/(Times Magazine)\b/g)) {
+           return "staff" ;
+         }
+      })
     .on("mouseover", function(d) {
-            div.transition()    
-                .duration(200)    
-                .style("opacity", .9);    
-            div.html(d.title + "</br>" + d.year + "</br>" + d.type + "</br>" + d.object)  
-                .style("left", (d3.event.pageX) + "px")   
-                .style("top", (d3.event.pageY - 28) + "px"); 
-            d3.select(this)
-              .style("fill", "steelblue") 
-            })          
+            var left = d3.event.pageX;
+            var top = d3. event.pageY;
+            var imgurl = "";
+            var url = 'https://collectionapi.metmuseum.org/api/collection/v1/object/' + d.object;
+            var load = d3.xhr(url)
+            .mimeType("application/json")
+            .header("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoibWNjYWMyOTBAbmV3c2Nob29sLmVkdSIsInBlcm1pc3Npb25zIjp7InByb3ZlbmFuY2UiOmZhbHNlLCJ3ZWJMYWJlbCI6ZmFsc2V9LCJleHAiOjQ2NzgxNzgzODV9.HhOOmPn9LVY5C8A0HYKIHqTKIt9RV0ScrwnGfn8P0ag")
+            .get(function(error, data){
+                if (error) throw error;
+               // console.log("data " + data);           
+               var payload = JSON.parse(data.response); 
+               var imgurl = payload.media.images.primaryImage.imageUrl; 
+              div.transition()    
+                .duration(300)    
+                .style("opacity", .9)
+               div.html('<img class="image-tooltip" src="'+ imgurl + '"/>' + "</br>" +  d.title + "</br>" + d.year + " | " + d.type)
+                .style("left", (left + 5) + "px")   
+                .style("top", (top - 28) + "px")
+                .style("opacity", .9);
+              })
+            })     
         .on("mouseout", function(d) {   
             div.transition()    
-                .duration(500)    
-                .style("opacity", 0); 
+                .duration(300)    
+                .style("opacity", 0);
             d3.select(this)
             .style("fill", "#cdcdcd")
-        });
+      });
 
 
+
+force.on("tick", function(e) {
+  var q,
+    node,
+    i = 0,
+    n = nodes.length;
+
+    
+  var q = d3.geom.quadtree(nodes);
+
+  while (++i < n) {
+    node = nodes[i];
+    //q.visit(collide(node));
+    q.node;
+
+   xerr = node.x - node.true_x;
+
+
+    yerr = node.y - node.true_y;
+    node.x -= xerr;
+    node.y -= yerr;
+    //node.x -= xerr*.09; //distribution distance x  .03 good / .09 good for all
+    //node.y -= yerr*0.05; //distribution distance y
+  }
+  
+ svg.selectAll("circle")
+      .attr("cx", function(d) { return d.x; })
+      .attr("cy", function(d) { return d.y; });
+
+});
+}
+/*
 force.on("tick", function(e) {
   var q,
     node,
@@ -282,6 +361,8 @@ force.on("tick", function(e) {
 
 });
 }
+
+/*
 
 function collide(node) {
   var r = node.radius,
@@ -321,4 +402,5 @@ function collide(node) {
         || y2 < ny1;
   };
 }
+*/
 

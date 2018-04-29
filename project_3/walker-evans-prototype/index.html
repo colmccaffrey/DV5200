@@ -19,14 +19,16 @@
               <h2>the notable works</h2>
         <li class="side"><button  onclick="showLocation('.brooklyn',1)">Brooklyn</button></li>
         <li class="side"><button  onclick="showLocation('.cuba',8)">Cuba</button></li>
-        <li class="side" ><button onclick="showLocation('.wva-penn',2)">West Virgina & Pennsylvania</button></li>
         <li class="side"><button  onclick="showLocation('.alabama',3)">Alabama</button></li>
         <li  class="side"><button onclick="showLocation('.newyork',4)">New York</button></li>
+        <li class="side"><button  onclick="showLocation('.florida',7)">Florida</button></li>
+        <li class="side"><button  onclick="showLocation('.louisiana',7)">Louisiana</button></li>
+        <li class="side"><button  onclick="showLocation('.connecticut',7)">Connecticut</button></li>
+        <li class="side"><button  onclick="showLocation('.mississippi',7)">Mississippi</button></li>
         </br>
         <li class="side"><button  onclick="showLocation('.staff',5)">Fortune & Times Magazine</button></li>
         <li class="side"><button  onclick="showLocation('.fsa',2)">Resettlement/ FSA</button></li>
         <li class="side"><button  onclick="showLocation('.yale',5)">Yale</button></li>
-        <li class="side"><button  onclick="showLocation('.later',7)">Final Years</button></li>
       </br>
       <li class="side"><button onclick="reset()">reset</button></li>
       <!--<li><button onclick="showType('Negative')">sort by type</button></li>-->
@@ -41,7 +43,9 @@
         <button class="btn" onclick="swarmCount(sixties,1960)">1960's</button>
         <button class="btn" style="margin-right: 0px" onclick="swarmCount(seventies,1970)">1970's</button>
       </div>
+      <div id="year-nav"></div> 
       <div id="chart"></div>
+      <div id="tip"></div>
       <div id="name"><h2 class="name-count">The Collection</h2></div>
       <div id="bar-counts"></div>
       <div id="info">
@@ -56,6 +60,15 @@
     var btns = header.getElementsByClassName("btn");
     for (var i = 0; i < btns.length; i++) {
       btns[i].addEventListener("click", function() {
+        var current = document.getElementsByClassName("active");
+        current[0].className = current[0].className.replace(" active", "");
+        this.className += " active";
+      });
+    }
+    var header = document.getElementById("sidebar");
+    var line = header.getElementsByClassName("side");
+    for (var i = 0; i < line.length; i++) {
+      line[i].addEventListener("click", function() {
         var current = document.getElementsByClassName("active");
         current[0].className = current[0].className.replace(" active", "");
         this.className += " active";
