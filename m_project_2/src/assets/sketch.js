@@ -183,8 +183,9 @@ function showDetails() {
     popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
 	});
 	activeCircle = L.marker([res[i].lat, res[i].long], {icon: imageIcon}).addTo(mymap);
-	*/
+	
 	meta.mousePressed(swapBack);
+	*/
 }
 
 /*
