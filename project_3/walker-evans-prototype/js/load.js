@@ -281,9 +281,11 @@ svg.selectAll("circle")
                var payload = JSON.parse(data.response); 
                var imgurl = payload.media.images.primaryImage.imageUrl; 
               div.transition()    
-                .duration(300)    
+                .duration(500)    
                 .style("opacity", .9)
                div.html('<img class="image-tooltip" src="'+ imgurl + '"/>' + "</br>" +  d.title + "</br>" + d.year + " | " + d.type)
+                .transition()
+                .duration(200)    
                 .style("left", (left + 5) + "px")   
                 .style("top", (top - 28) + "px")
                 .style("opacity", .9);
@@ -291,7 +293,7 @@ svg.selectAll("circle")
             })     
         .on("mouseout", function(d) {   
             div.transition()    
-                .duration(300)    
+                .duration(200)    
                 .style("opacity", 0);
             d3.select(this)
             .style("fill", "#cdcdcd")
