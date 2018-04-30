@@ -293,7 +293,7 @@ svg.selectAll("circle")
             })     
         .on("mouseout", function(d) {   
             div.transition()    
-                .duration(200)    
+                .duration(100)    
                 .style("opacity", 0);
             d3.select(this)
             .style("fill", "#cdcdcd")
