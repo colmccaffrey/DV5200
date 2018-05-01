@@ -21,12 +21,12 @@ var activeCircle;
 
  
 function preload() {
-  var data = "/m_project_2/src/data/collectionlisting-thirty-six-views.json";
-  //var data = "/src/data/collectionlisting-thirty-six-views.json";  //change url when add to github
+  var data = "/DV5200/m_project_2/src/data/collectionlisting-thirty-six-views.json";
+  //var data = "/DV5200/m_project_2/src/data/collectionlisting-thirty-six-views.json";  //change url when add to github
   //var data = 'https://colmccaffrey.github.io/DV5200/project_2/src/data/collectionlisting-thirty-six-views.json';
   images = loadJSON(data);
   //console.log(images);
-  var gdata = "/m_project_2/src/data/street-view-gallery.json"
+  var gdata = "/DV5200/m_project_2/src/data/street-view-gallery.json"
 
   gviews = loadJSON(gdata);
   console.log(gviews);
