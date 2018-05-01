@@ -140,7 +140,7 @@ ul#location  {
 #location li button {
 	border: none;
 	outline: none;
-	background-color: none;
+	background-color: #fff;
 	font-style: italic;
 	padding: 0px;
 	width: 100%;
