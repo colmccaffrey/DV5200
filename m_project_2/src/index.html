@@ -38,28 +38,35 @@
   </head>
   <body>
       <div id="welcome">
-        <h2>Finding the 36 [Google Street] Views of Mount Fuji</h2>
-        <p>The series "Thirty-six Views of Mount Fuji" (富嶽三十六景 Fugaku Sanjūrokkei) is a series of landscape prints by the Japanese ukiyo-e artist Katsushika Hokusai (1760–1849).
-        </p>
-        <p>This project explores the first thirty-six designs of the series and their possible corresponding geolocations, experienced through Google Street Views.</p>
-        <span id="sources">data sources: The Metropolitan Museum of Art, Google Maps API, Kotodamaya, and Wikipedia</span></br>
-        <a href="#container">ENTER</a>
-      </br>
+        <div id="welcome-text">
+          <h2>Finding the 36 [Google Street] Views of Mount Fuji</h2>
+          <p>The series "Thirty-six Views of Mount Fuji" (富嶽三十六景 Fugaku Sanjūrokkei) is a series of landscape prints by the Japanese ukiyo-e artist Katsushika Hokusai (1760–1849).
+          </p>
+          <p>This project explores the first thirty-six designs of the series and their possible corresponding geolocations, experienced through Google Street Views.</p>
+          <span id="sources">data sources: The Metropolitan Museum of Art, Google Maps API, Kotodamaya, and Wikipedia</span></br>
+          </br>
+          </br>
+          <button class="mdl-button mdl-js-button mdl-js-ripple-effect" onclick="location.href='#container'">
+         ENTER
+        </button>
+        </br>
+      </div>
       </div>
     <div id="container"></div>
       <div id="background-gpan-cover"></div>
       <div id="sort-option">
-        <div id="map-icon"><i class="material-icons md-64">place</i></div>
+        <div id="map-icon" onclick="showDetailsVisible()"><i class="material-icons md-64">place</i></div>
         <button class="mdl-button mdl-js-button mdl-js-ripple-effect" onclick="goBack()">
           BACK
         </button>
         <!-- Flat button with ripple -->
-        <button class="mdl-button mdl-js-button mdl-js-ripple-effect">
+        <button class="mdl-button mdl-js-button mdl-js-ripple-effect" onclick="goNext()">
           NEXT
           <i class="material-icons md-48">chevron_right</i>
         </button>
       </div>      
     <div id="mapid"></div>
+    <div id="info"></div>
     <!--<script>
       var panorama;
       function initialize() {

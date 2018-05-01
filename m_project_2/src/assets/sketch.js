@@ -21,12 +21,13 @@ var activeCircle;
 
  
 function preload() {
-  //var data = "/src/data/collectionlisting-thirty-six-views.json";
+  var data = "/m_project_2/src/data/collectionlisting-thirty-six-views.json";
   //var data = "/src/data/collectionlisting-thirty-six-views.json";  //change url when add to github
-  var data = 'https://colmccaffrey.github.io/DV5200/m_project_2/src/data/collectionlisting-thirty-six-views.json';
+  //var data = 'https://colmccaffrey.github.io/DV5200/project_2/src/data/collectionlisting-thirty-six-views.json';
   images = loadJSON(data);
   //console.log(images);
-  var gdata = "https://colmccaffrey.github.io/DV5200/m_project_2/src/data/street-view-gallery.json"
+  var gdata = "/m_project_2/src/data/street-view-gallery.json"
+
   gviews = loadJSON(gdata);
   console.log(gviews);
 
@@ -66,6 +67,7 @@ function showPics(images){
 
  function swapImage() {
  	this.addClass('active');
+ 	console.log("this " + this);
  	i =  Math.floor(Math.random() * 31) + 1;
  	lat = Number(views[i].lat);
 	console.log("lat " + lat);
@@ -77,11 +79,11 @@ function showPics(images){
 	console.log(pitch);
 	document.getElementById('sort-option').style.visibility = "visible";
  	document.getElementById('background-gpan-cover').style.display = "block";
- 	console.log("div pressed image ")
- 	      	    //this.addClass('active');
+ 	
 
         panorama = new google.maps.StreetViewPanorama(
-            document.getElementById('background-gpan-cover'),
+           document.getElementById('background-gpan-cover'),
+           
             {
              position: {lat: lat, lng: lng},
         	 pov: {heading: heading, pitch: pitch},
@@ -126,40 +128,98 @@ function swapImage () {
 */
 function goBack() {
 	document.getElementById('sort-option').style.visibility = "hidden";
+	var pano= document.getElementById('background-gpan-cover');
+	pano.innerHTML = '';
+	var x = document.getElementsByClassName('active');
+		[].forEach.call(x, function(el) {
+    	el.classList.remove("active");
+	});
+	swapBack();
 
 }
 
+function goNext() {
+		var i = 5;
+		console.log(" pics " + res[0]);
+		var imageUrl = res[5].image;
+		var div = createDiv('');
+		div.addClass('image-wrapper');
+		div.parent('container');
+		div.addClass('active');
+		var img = createImg(res[i].image, res[i].title);
+		img.addClass('next');
+		img.parent(div);
+
+		i =  Math.floor(Math.random() * 31) + 1;
+	 	lat = Number(views[i].lat);
+		console.log("lat " + lat);
+		lng = Number(views[i].lng);
+		console.log(lng);
+		heading = Number(views[i].heading);
+		console.log(heading);
+		pitch = Number(views[i].pitch);
+		console.log(pitch);
+		document.getElementById('sort-option').style.visibility = "visible";
+	 	document.getElementById('background-gpan-cover').style.display = "block";
+ 
+        panorama = new google.maps.StreetViewPanorama(
+           document.getElementById('background-gpan-cover'),
+           
+            {
+             position: {lat: lat, lng: lng},
+        	 pov: {heading: heading, pitch: pitch},
+        	 zoom: 0,
+        	 disableDefaultUI: true
+
+            });	
+      }
+	
 
 function swapBack () {
 	document.getElementById('sort-option').style.visibility = "hidden";
  	document.getElementById('background-gpan-cover').style.display = "none";
-	var x = document.getElementsByClassName('active')[0];
-	x.classList.remove('active');
+	var x = document.getElementsByClassName('active');
+		[].forEach.call(x, function(el) {
+    	el.classList.remove("active");
+	});
+	var d = document.getElementById('info');
+	d.innerHTML = '';
 	document.getElementById('mapid').style.zIndex = "-2";
-	meta.remove();
+	//meta.remove();
 	mymap.removeLayer(activeCircle);
 	i = "";
 }
 
+function showDetailsVisible() {
+	console.log("show deets ");
+	document.getElementById('mapid').setAttribute("style", "left : auto; z-index : 999");
+
+}
+
+
 function showDetails() {
 	console.log("img pressed details ")
-	/*
-	var p = createP('X');
+	var d = document.getElementById('info');
+	//var p = createP('X');
 	var metadata = this.elt.alt;
 	var div = createDiv(metadata);
 	var ww = window.innerWidth;
 	meta = div;
 	meta.addClass('details-box');
-	p.parent(meta);
+	meta.parent(d);
+	//p.parent(meta);
+	/*
 	if (this.elt.offsetLeft < 300) {
 		meta.addClass('alt-pos');
 		document.getElementById('mapid').setAttribute("style", "left : auto; right: 25px; z-index : 1002;");
 	} else {
 		document.getElementById('mapid').setAttribute("style", "left : 25px; right : auto; z-index : 1002;");
 	}
+
 	if (ww < 800) {
 		meta.addClass('mobile');
 	}
+	*/
 	var imageData = this.elt.alt;
 	var i = res.length,
     imageData;
@@ -184,27 +244,26 @@ function showDetails() {
 	});
 	activeCircle = L.marker([res[i].lat, res[i].long], {icon: imageIcon}).addTo(mymap);
 	
+	///// may need this in mobile
 	meta.mousePressed(swapBack);
-	*/
+
 }
 
-/*
+
 function addMarker(){
 	var name = this.elt.alt;
 	console.log("name " + name);
 
-
 }
-*/
+
 
 function clearMeta(){
 
 }
 
 
-
 function createMap(res){
-	mymap = L.map('mapid').setView([35.1, 138.7278], 7);
+	mymap = L.map('mapid').setView([35.6, 138.9278], 9);
 
 	L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_nolabels/{z}/{x}/{y}.png', {
 
@@ -219,9 +278,9 @@ function createMap(res){
     iconUrl: 'https://cdn1.iconfinder.com/data/icons/famous-places/512/travel_Mount_Fuji-512.png',
     //shadowUrl: 'leaf-shadow.png',
 
-    iconSize:     [36, 36], // size of the icon
+    iconSize:     [42, 42], // size of the icon
     //shadowSize:   [50, 64], // size of the shadow
-    iconAnchor:   [22, 35], // point of the icon which will correspond to marker's location
+    iconAnchor:   [34, 41], // point of the icon which will correspond to marker's location
    // shadowAnchor: [4, 62],  // the same for the shadow
     popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
 });
@@ -234,10 +293,12 @@ for (var j=0; j<res.length; j++){
 	    color: 'navy',
 	    fillColor: 'navy',
 	    fillOpacity: 1,
-	    radius: 5
+	    radius: 10
 	}).addTo(mymap);
 	}
 }
+
+
 
 function keyTyped() {
   if (key === 'a') {
