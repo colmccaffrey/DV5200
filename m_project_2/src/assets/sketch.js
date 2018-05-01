@@ -59,9 +59,9 @@ function showPics(images){
 		img.parent(div); // use p5.Element
 		//div.mouseOver(initialize).preventDefault;
 		//div.mouseOut(swapBack);
-		div.mousePressed(swapImage);
+		div.mouseClicked(swapImage);
 		//img.mouseOut(clearMeta);
-		img.mousePressed(showDetails);
+		img.mouseClicked(showDetails);
 	}
 }
 
