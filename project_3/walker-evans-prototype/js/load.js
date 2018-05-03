@@ -185,7 +185,7 @@ var new_nodes = d3.range(1).map(function() {  // sets the # of circles to create
     type: current[j].id,
     object: current[j].object,
     title: current[j].title,
-    radius: 2, 
+    radius: 2.2, 
     y: true_y,
     true_x: x_offset - 100, 
     true_y: true_y
