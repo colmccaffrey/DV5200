@@ -31,6 +31,14 @@ body {
 
 }
 
+#source {
+	position: absolute;
+    left: 15px;
+    bottom: 50px;
+    width: 180px;
+    font-size: 10px;
+}
+
 #year-nav li {
 	display: inline-block;
 	color: #888;
