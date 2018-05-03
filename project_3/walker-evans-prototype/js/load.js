@@ -63,6 +63,7 @@ var w = width,
 
 var webUrl;
 
+/*
 function showType(type) {
   var name = type;
   d3.selectAll('circle')
@@ -81,6 +82,7 @@ function showType(type) {
     })
 }
 
+*/
 function objectBars(barcount) {
   //console.log("objectebars")
   barcount.forEach(function(d, i) { 
@@ -155,6 +157,10 @@ function setImgUrl(id) {
 
 
 function setNodes(current){ //array of data for decade/location pressed
+ d3.select('#bc-type')
+    .html("");
+  d3.select('#bc-loc')
+    .html("");
 d3.selectAll('svg').remove();
 d3.selectAll('.subnav').remove();
 
@@ -212,10 +218,13 @@ var svg = d3.select("#chart").append("svg:svg")
     .attr("width", w)
     .attr("height", h);
 
-
 svg.selectAll("circle")
     .data(nodes)
-    .enter().append("svg:circle")    
+    .enter().append("a")
+    .attr("xlink:href", function(d){ 
+      return "https://www.metmuseum.org/art/collection/search/" + d.object;
+    })
+    .append("svg:circle")    
     .attr("r", function(d) { return d.radius; })
     .style("fill", "#cdcdcd")
     .style("stroke", "#212121")
@@ -297,7 +306,9 @@ svg.selectAll("circle")
                 .style("opacity", 0);
             d3.select(this)
             .style("fill", "#cdcdcd")
-      });
+        });
+
+
 
 
 force.on("tick", function(e) {

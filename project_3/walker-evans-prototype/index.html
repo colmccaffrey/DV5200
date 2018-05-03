@@ -3,11 +3,11 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
     <title>Walker Evans</title>
+    <link rel="stylesheet" href="https://use.typekit.net/upc5njf.css">    
     <script type="text/javascript" src="https://d3js.org/d3.v3.js"></script>
-    <link rel="stylesheet" href="https://use.typekit.net/upc5njf.css"> 
+    <!--<script type="text/javascript" src="http://mbostock.github.com/d3/d3.geom.js"></script>
+    <script type="text/javascript" src="http://mbostock.github.com/d3/d3.layout.js"></script>-->
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    <!-- <script type="text/javascript" src="https://mbostock.github.com/d3/d3.geom.js"></script>
-    <script type="text/javascript" src="https://mbostock.github.com/d3/d3.layout.js"></script>-->
     <script src="js/load.js"></script>
 
   </head>
@@ -30,8 +30,19 @@
         <li class="side"><button  onclick="showLocation('.fsa',2)">Resettlement/ FSA</button></li>
         <li class="side"><button  onclick="showLocation('.yale',5)">Yale</button></li>
       </br>
+        <li class="count"><button  onclick="showType('Negative')">Negatives</button></li>
+        <li class="count"><button  onclick="showType('Polaroid')">Polaroids</button></li>
+        <li class="count"><button  onclick="showType('Photograph')">Photographs</button></li>
+        <li class="count"><button  onclick="showType('Manuscript materials')">Manuscript Materials</button></li>
+        <li class="count"><button  onclick="showType('Glass negative')">Glass Negatives</button></li>
+        <li class="count"><button  onclick="showType('Transparency')">Transparency</button></li>
+        </br>
       <li class="side"><button onclick="reset()">reset</button></li>
       <!--<li><button onclick="showType('Negative')">sort by type</button></li>-->
+      </br>
+      <ul id="bc-type">
+      </ul>
+      <ul id="bc-loc">
       </ul>
     </div>
       <div id="decades">
@@ -47,7 +58,9 @@
       <div id="chart"></div>
       <div id="tip"></div>
       <div id="name"><h2 class="name-count">The Collection</h2></div>
-      <div id="bar-counts"></div>
+      <div id="bar-counts">
+
+      </div>
       <div id="info">
         <p>In 1994, The Estate of Walker Evans handed over its holdings to New York City's The Metropolitan Museum of Art. The Metropolitan Museum of Art is the sole copyright holder for <a href="https://www.metmuseum.org/art/collection/search#!?q=walker%20evans&perPage=20&showOnly=withImage&sortBy=Relevance&sortOrder=asc&offset=0&pageSize=0" target="_blank">all works of art in all media by Walker Evans</a>. The only exception is a group of approximately <a href="http://www.loc.gov/pictures/search/?q=walker+evans&st=gallery" target="_blank">1,000 negatives in collection of the Library of Congress</a> which were produced for the Resettlement Administration (RA) / Farm Security Administration (FSA). Evans's RA / FSA works are in the public domain.
         </p>
@@ -56,6 +69,7 @@
     <script src="js/cluster.js"></script>
     <script>
     // Add active class to the current button (highlight it)
+    
     var header = document.getElementById("decades");
     var btns = header.getElementsByClassName("btn");
     for (var i = 0; i < btns.length; i++) {
@@ -74,6 +88,7 @@
         this.className += " active";
       });
     }
+
 
     </script>
 </body>

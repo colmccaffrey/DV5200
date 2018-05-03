@@ -82,25 +82,35 @@ function reset() {
     .attr("visibility", "visible")
     .attr("r", function(d){ return d.radius; });
   d3.selectAll('p').remove();
+  d3.select('#bc-type')
+    .html("");
+  d3.select('#bc-loc')
+    .html("");
+  d3.selectAll('.tooltip').remove();
+  setNodes(allYears);
+
 
 }
 function showType(type) {
   var name = type;
+  var newradius = 0;
+  d3.select('#bc-type')
+    .html(name);
   d3.selectAll('circle')
-      .style('fill', '#212121')
+      .attr("r", function(d){ return newradius; })
+      .style('fill', '#fff')
       .transition()
       .attr("delay", 1000)
       .attr("duration", 1000)
       //.attr("cy", 400)
-      .style('fill', function(d){
+      .attr("r", function(d){
     //console.log(" clciked- obejcet " + d[i].type + " name: " + name);
     //console.log( "i = " + i + " d = "+d.type);
       if (name == d.type) { 
         console.log("type" + d.type);
         //console.log(" clciked- obejcet " + d.type + " name: " + name);
-        return "#fff";
+        return d.radius;
       }
-
     })
 }
 
@@ -108,6 +118,8 @@ function showLocation(loc, index) { //run function on current svg loaded
   console.log("clicked loc " + loc);
   var newRadius = 3.2;
   var radius = 0;
+  d3.select('#bc-loc')
+    .html(loc);
     d3.selectAll('p').remove();
     d3.select('#info')
     .append('p')
@@ -140,6 +152,10 @@ var decade = 1900;
 var content;
 
 function swarmCount(num, year) {
+  d3.select('#bc-type')
+    .html("");
+  d3.select('#bc-loc')
+    .html("");
   d3.selectAll('svg').remove();
   num_swarm = num;
   decade = +year;
@@ -232,9 +248,11 @@ root.fixed = true;
 
 force.start();
 
-let div = d3.select("body").append("div") 
+/*let div = d3.select("body").append("div") 
     .attr("class", "tooltip")       
     .style("opacity", 0);
+*/
+let div = d3.select(".tooltip");
 
 var svg = d3.select("#chart").append("svg:svg")
     .attr("width", w)
@@ -243,7 +261,11 @@ var svg = d3.select("#chart").append("svg:svg")
 
 svg.selectAll("circle")
     .data(nodes)
-    .enter().append("svg:circle")    
+    .enter().append("a")
+    .attr("xlink:href", function(d){ 
+      return "https://www.metmuseum.org/art/collection/search/" + d.object;
+    })
+    .append("svg:circle")     
     .attr("r", function(d) { return d.radius; })
     .style("fill", "#cdcdcd")
     .style("stroke", "black")
