@@ -21,12 +21,15 @@ var activeCircle;
 
  
 function preload() {
-  var data = "/DV5200/m_project_2/src/data/collectionlisting-thirty-six-views.json";
-  //var data = "/DV5200/m_project_2/src/data/collectionlisting-thirty-six-views.json";  //change url when add to github
+	var data = "/DV5200/m_project_2/src/data/collectionlisting-thirty-six-views.json";
+  //var data = "/m_project_2/src/data/collectionlisting-thirty-six-views.json";
+  //var data = "/src/data/collectionlisting-thirty-six-views.json";  //change url when add to github
   //var data = 'https://colmccaffrey.github.io/DV5200/project_2/src/data/collectionlisting-thirty-six-views.json';
   images = loadJSON(data);
   //console.log(images);
-  var gdata = "/DV5200/m_project_2/src/data/street-view-gallery.json"
+  //var gdata = "/m_project_2/src/data/street-view-gallery.json"
+    var gdata = "/DV5200/m_project_2/src/data/street-view-gallery.json"
+
 
   gviews = loadJSON(gdata);
   console.log(gviews);
@@ -78,6 +81,7 @@ function showPics(images){
 	pitch = Number(views[i].pitch);
 	console.log(pitch);
 	document.getElementById('sort-option').style.visibility = "visible";
+	document.getElementById('nav').style.visibility = "visible";
  	document.getElementById('background-gpan-cover').style.display = "block";
  	
 
@@ -128,6 +132,7 @@ function swapImage () {
 */
 function goBack() {
 	document.getElementById('sort-option').style.visibility = "hidden";
+	document.getElementById('nav').style.visibility = "hidden";
 	var pano= document.getElementById('background-gpan-cover');
 	pano.innerHTML = '';
 	var x = document.getElementsByClassName('active');
@@ -178,6 +183,7 @@ function goNext() {
 function swapBack () {
 	document.getElementById('sort-option').style.visibility = "hidden";
  	document.getElementById('background-gpan-cover').style.display = "none";
+	document.getElementById('info').setAttribute("style", "opacity : 1; -webkit-transition: all 2s ease-in-out; ");
 	var x = document.getElementsByClassName('active');
 		[].forEach.call(x, function(el) {
     	el.classList.remove("active");
@@ -203,7 +209,7 @@ function showDetails() {
 	//var p = createP('X');
 	var metadata = this.elt.alt;
 	var div = createDiv(metadata);
-	var ww = window.innerWidth;
+	//var ww = window.innerWidth;
 	meta = div;
 	meta.addClass('details-box');
 	meta.parent(d);
@@ -245,10 +251,14 @@ function showDetails() {
 	activeCircle = L.marker([res[i].lat, res[i].long], {icon: imageIcon}).addTo(mymap);
 	
 	///// may need this in mobile
-	meta.mousePressed(swapBack);
+	meta.mousePressed(fadeOut);
 
 }
 
+function fadeOut(){
+	document.getElementById('info').setAttribute("style", "opacity : 0; -webkit-transition: all 2s ease-in-out; ");
+	
+}
 
 function addMarker(){
 	var name = this.elt.alt;
@@ -269,7 +279,7 @@ function createMap(res){
 
 	//L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
 	    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
-	    maxZoom: 18,
+	    maxZoom: 30,
 	    //id: 'mapbox.satellite',
 	    //accessToken: 'pk.eyJ1IjoiZHZpYTIwMTciLCJhIjoiY2o5NmsxNXIxMDU3eTMxbnN4bW03M3RsZyJ9.VN5cq0zpf-oep1n1OjRSEA'
 	}).addTo(mymap);
