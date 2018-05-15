@@ -1,13 +1,13 @@
 var selectionYear = 0;
 
-d3.csv("data/csvCut_MetObjects_5000.csv", function(d) {
+d3.csv("data/csvCut_MetObjects_data.csv", function(d) {
   return {
     acquired : checkYear(d.Acquired), 
     created : +d.Created,
     dept : checkDept(d.Department)
   };
 }, function(data) {
-
+/*put x axis labels here instead - include fixed title and legend */
 	var slider2 = d3.sliderHorizontal()
     .min(1871)
     .max(2017)
@@ -15,57 +15,83 @@ d3.csv("data/csvCut_MetObjects_5000.csv", function(d) {
     .width(800)
     .on('onchange', val => {
     	d3.select("p#value2").text(val);
-    	selectionYear = val;
+    	//selectionYear = val;
     	//selectionYearSlider(val);
     	//console.log("data[0].acquired" + data[0].acquired +  " selectionYear " + selectionYearSlider());
-
 
 });
 
   
-  console.log("slider value " + slider2.value());
+  //console.log("slider value " + slider2.value());
 
-  var g = d3.select("div#slider2").append("svg")
+  /*var g = d3.select("div#slider2").append("svg")
     .attr("width", 500)
     .attr("height", 100)
     .append("g")
     .attr("transform", "translate(30,30)");
+    //console.log("g " + g);
 
   g.call(slider2);
 
   d3.select("p#value2").text((slider2.value()));
   d3.select("a#setValue2").on("click", () => slider2.value());
 
-
+*/
 
 for (var i = 0; i < data.length; i++ ) {
 if (!null) {
-var x1 = (data[i].created - 1000);
-var x2 = (data[i].acquired - 1000);
-var x = x2 - x1;
-var ySet = 575;
+//var x1 = (data[i].created - 1000);
+//var x2 = (data[i].acquired - 1000);
+
+var x1 = (data[i].created) + 3500;
+var x2 = (data[i].acquired) + 3500;
+var x = (x2 - x1);
+var height = window.innerHeight;
+var ySet = height * .75;
 var xTest =10 * i;
 
 var svg = d3.select("svg")
-.append("g")
+    .append("g")
+
 
 
 var arc = d3.arc()
   
   .innerRadius(x/2)
   .outerRadius(x/2);
+  //.innerRadius(x)
+  //.outerRadius(x);
 
+/*
+
+svg.append("text")
+    .attr("class", "x label")
+    .attr("text-anchor", "end")
+    .attr("x", 50 + j)
+    .attr("y", 600 - 6)
+    .text("j");
+}
+*/
 
 var sector = svg.append("path")
+
   .attr("fill", "none")
-  .attr("stroke-width", .2)
-  .attr("stroke", data[i].dept)
+  .attr("stroke-width", .1)
+  //.attr("stroke", data[i].dept)
+  	.attr("stroke", "#fdbf6f")
+
   .on("mouseover", function(d, i){
-  	  		d3.select(this).style("stroke", "navy").attr("stroke-width", 5).attr("z-index", 5000);
-			d3.select("span#details").text(data[this].created);
+  	  		//d3.select(this).style("stroke", this.dept).attr("stroke-width", 3).attr("zIndex", 5000);
+  	  		d3.select(this).style("stroke", "red").attr("stroke-width", 3).attr("zIndex", 5000);
+  	  		console.log(this.created);
+			//d3.select("span#details").text(data[this].created);
+			//d3.select(this).text(this.dept).append("span#details");
+			//console.log("arc text " + arcText);
+			//d3.select("span#details").append(arcText);
+
              })	
   .on("mouseout", function(d,i) {
-  		d3.select(this).style("stroke", data[i].dept).attr("stroke-width", .2);
+  		d3.select(this).style("stroke", data[i].dept).attr("stroke-width", .1);
   		d3.select("span#details").text("  "); 
 
   	})
@@ -73,14 +99,22 @@ var sector = svg.append("path")
   .attr("transform", function(d, i) {
             // arc will always be drawn around (0, 0)
             // shift so (0, 0) will be between created and acquired
-            if (x1 > 0) {
+            var diff = x2 - x1;
+            //if (x1 > 0) {\            
+            if (diff > 0) {
+	            //var xshift = x1 + (x2 - x1);
 	            var xshift = x1 + (x2 - x1) / 2;
 	            var yshift = ySet;
-	            return "translate(" + xshift + ", " + yshift + ")";
+	            //var yshift = ySet ;
+	            //console.log('xshift' + xshift);
+	            //console.log('yshift ' + yshift);
+	            return "translate(" + xshift + ", " + yshift  + ")";
+
 	        } else {
-	        	xhift = (x1 * .001) / 2;
-	        	var yshift = ySet - 100;
-	            return "translate(" + xshift + ", " + yshift + ")";
+	        	//var xshift = (x1 * .001) / 2;
+	        	var xshift = (x2 - x1) / 2 ;
+	        	var yshift = ySet;
+	            return "translate(" + xshift + ", " + yshift  + ")";
 	        }
         })
   .attr("d", arc({startAngle:(-0.5 * Math.PI), endAngle:(0.5 * Math.PI)}))
@@ -88,6 +122,7 @@ var sector = svg.append("path")
 	}
 
 });
+
 
 function checkYear(x){
     objectYear = x.split(".", 1 );
@@ -212,7 +247,7 @@ Photographs
 Robert Lehman Collection
 The Cloisters
 The Libraries
-"Arts of Africa, Oceania, and the Americas"
+Arts of Africa, Oceania, and the Americas
 */
 /*color brewer generator
 #a6cee3
@@ -234,6 +269,6 @@ The Libraries
 #66a61e
 #e6ab02
 #a6761d
-#666666
+#626262
 */
 
