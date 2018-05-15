@@ -3,24 +3,17 @@
   <head>
     <meta name="viewport" width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0>
     <style> 
-    body {padding: 20; margin: 0; font-family: 'Open Sans', sans-serif;
+    body {padding-left: 20; margin: 0; font-family: 'Open Sans', sans-serif;
       } 
     
     h1 {
       margin-left: 50px;
       font-family: 'Open Sans', sans-serif;
       font-weight: 300;
-      position: fixed
-      top: 10px;
-      background-color: transparent;
     }
    svg {
-    height: 100vh;
-    width: 8000px;
-    overflow-x: scroll;
-    margin: 0;
-    position: absolute;
-    right: auto;    
+    height: 600px;
+    width: 1200px;
    }
    .center {
     text-align: center;
@@ -29,40 +22,31 @@
     text-align: center;
     padding-left: 10rem;
    }
-   #details {
-    display: block;
-    position: fixed;
-    top: 20%;
-    left: 50%;
-    font-size: 36px;
-   }
 
        
   </style>
  
   </head>
   <body>
-    <h1><strong>Art Over Time:</strong> tracing MET objects from time of creation to year of acquisition</h1>
+    <h1>Met Acquisitions by Department and Year of Object Creation</h1>
     <div class="legend"></div>
   <svg></svg>
   <div id="labels">
   </div>
     <div class="row center">
       <div class="center col-sm-2">
-        <!--<h3>Year Acquired</h3>
-        <p id="value2"></p>-->
-        <span id="details"></span>
+        <h3>Year Acquired</h3>
+        <p id="value2"></p>
+        <p>Object Created <span id="details"></span></p>
       </div>
       <div class="center col-sm">
         <div id="slider2"></div>
       </div>
-    </div>  
-   <!-- <a id="setValue2" href="#">Reset</a> -->
-  <script src="http://d3js.org/d3.v4.min.js" charset="utf-8"></script>
-  <script src="https://unpkg.com/d3-simple-slider@0.2.0/build/d3-simple-slider.js"></script>
- <!-- <script type="text/javascript" src="sketch.js"></script>-->
-   <script type="text/javascript" src="test-server.js"></script>
-
+    </div>
+    <a id="setValue2" href="#">Reset</a>
+  <script src="../js/d3.v4.min.js" charset="utf-8"></script>
+  <script src="../js/d3-simple-slider.js"></script>
+  <script type="text/javascript" src="sketch.js"></script>
 
   </body>
 </html>
