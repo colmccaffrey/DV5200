@@ -1,0 +1,138 @@
+body {
+	font-family: 'Raleway', sans-serif;
+	font-size: 16px;
+	color: #212121;
+	margin: 0;
+	height: 100%;
+  	width: 100%;
+  	overflow: auto;
+}
+
+html {
+    overflow: hidden;
+    height: 100%;
+}
+h1, h2, h3, h4, h5, h6 {
+ 	font-family: 'Oswald', sans-serif;
+}
+
+.content {
+	padding-left: 5%;
+}
+
+.content img {
+	width: 100%;
+	height: auto;
+	margin-bottom: 6rem;
+}
+
+ul.navigation {
+	padding-left: 0;
+	list-style: none;
+	margin-top: 2rem;
+}
+
+a.logo {
+	color: #212121;
+	text-decoration: none;
+}
+.navigation a {
+	color: #212121;
+	text-decoration: none;
+}
+.navigation a h6 {
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+.thumbnails {
+	list-style: none;
+
+}
+
+ul.thumbnails {
+	vertical-align: middle;
+	margin-left: auto;
+	margin-right: auto;
+
+}
+
+.thumbnails li {
+	display: inline-block;
+	width: 22%;
+	margin-right: 2.5%;
+
+
+}
+.thumbnails li img {
+	width: 100%;
+	height: auto;
+	overflow: hidden;
+
+}
+
+.main {
+	width: 62%;
+	margin-left: auto;
+	margin-right: auto;
+	height: auto;
+	position: relative;
+	top: 0;
+	background-color: white;
+	padding-top: 15%;
+
+}
+.active {
+	color: rgb(68,138,255) !important;
+}
+
+.nav {
+	position: fixed;
+	height: 100vh;
+	width: 100vw;
+	color: #212121;
+	padding-left: 3%;
+	padding-top: 15%;
+	
+}
+.footer {
+	margin-top: 3rem;
+	margin-bottom: 3rem;
+	height: 100px;
+	color: #ccc;
+}
+
+hr {
+	color: #ccc;
+}
+
+h6 a {
+	font-size: 16px;
+	letter-spacing: .1px;
+}
+@media screen and (max-width: 1200px) {
+	.nav {
+		position: relative;
+		width: auto;
+		margin-left: auto;
+		margin-right: auto;
+		height: auto;
+		padding-left: 40px;
+	}
+
+	.main {
+		padding: 0px;
+		width: auto;
+	}
+}
+
+@media screen and (max-width: 568px) {
+		.thumbnails li {
+			display: inline-block;
+			width: 45%;
+		}
+		.nav {
+			padding-left: 40px;
+
+		}
+
+}
