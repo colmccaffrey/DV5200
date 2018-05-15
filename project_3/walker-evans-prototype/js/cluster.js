@@ -94,6 +94,7 @@ function reset() {
 function showType(type) {
   var name = type;
   var newradius = 0;
+  d3.selectAll('.tooltip').html("").style("opacity", 0);
   d3.select('#bc-type')
     .html(name);
   d3.selectAll('circle')
@@ -115,6 +116,8 @@ function showType(type) {
 }
 
 function showLocation(loc, index) { //run function on current svg loaded
+  d3.selectAll('.tooltip').html("").style("opacity", 0);
+
   console.log("clicked loc " + loc);
   var newRadius = 3.2;
   var radius = 0;
@@ -152,6 +155,7 @@ var decade = 1900;
 var content;
 
 function swarmCount(num, year) {
+  d3.selectAll('.tooltip').html("").style("opacity", 0);
   d3.select('#bc-type')
     .html("");
   d3.select('#bc-loc')
@@ -252,7 +256,6 @@ force.start();
     .attr("class", "tooltip")       
     .style("opacity", 0);
 */
-let div = d3.select(".tooltip");
 
 var svg = d3.select("#chart").append("svg:svg")
     .attr("width", w)
@@ -295,6 +298,7 @@ svg.selectAll("circle")
          }
       })
     .on("mouseover", function(d) {
+            var temp = d3.selectAll('.tooltip')   
             var left = d3.event.pageX;
             var top = d3. event.pageY;
             var imgurl = "";
@@ -307,24 +311,23 @@ svg.selectAll("circle")
                // console.log("data " + data);           
                var payload = JSON.parse(data.response); 
                var imgurl = payload.media.images.primaryImage.imageUrl; 
-              div.transition()    
-                .duration(500)    
-                .style("opacity", .9)
-               div.html('<img class="image-tooltip" src="'+ imgurl + '"/>' + "</br>" +  d.title + "</br>" + d.year + " | " + d.type)
-                .transition()
-                .duration(200)  
+                temp.html('<img class="image-tooltip" src="'+ imgurl + '"/>' + "</br>" +  d.title + "</br>" + d.year + " | " + d.type)
+                temp.transition()
+                .duration(500)
                 .style("left", (left + 5) + "px")   
                 .style("top", (top - 28) + "px")
-                .style("opacity", .9);
+                .style("opacity", .9)
               })
             })     
-        .on("mouseout", function(d) {   
-            div.transition()    
-                .duration(100)    
-                .style("opacity", 0);
-            d3.select(this)
-            .style("fill", "#cdcdcd")
-      });
+        .on("mouseout", function(d) {  
+            var temp = d3.selectAll('.tooltip') 
+             temp.transition()
+                  .duration(500)
+                  .style("opacity", 0)
+                  temp.html('')
+           
+        });
+
 
 
 

@@ -8,7 +8,7 @@
     <!--<script type="text/javascript" src="http://mbostock.github.com/d3/d3.geom.js"></script>
     <script type="text/javascript" src="http://mbostock.github.com/d3/d3.layout.js"></script>-->
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    <script src="js/load.js"></script>
+    <script src="js/load-images.js"></script>
 
   </head>
   <body>
@@ -56,7 +56,8 @@
         <button class="btn" style="margin-right: 0px" onclick="swarmCount(seventies,1970)">1970's</button>
       </div>
       <div id="year-nav"></div> 
-      <div id="chart"></div>
+      <div id="chart">
+      </div>
       <div id="tip"></div>
       <div id="name">
 
@@ -71,6 +72,8 @@
       <div id="source">
         <em><a target="_blank" href="https://github.com/colmccaffrey/DV5200/blob/master/project_3/walker-evans-prototype/data/evans-objects-title.csv">Data Source</a></em>
         <em>Filter results provided by regex string match in object title and may be subject to errors, duplicates, and omissions.</em>
+        <!--<button id="download" onclick="downloadImg()">download csv images</button>-->
+
       </div>
     </div>
     <script src="js/cluster.js"></script>

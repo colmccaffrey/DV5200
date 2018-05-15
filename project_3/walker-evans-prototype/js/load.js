@@ -6,6 +6,7 @@ var sixties = [];
 var seventies = [];
 var allYears = [];
 var barCounts = [];
+var imgUrls = [];
 
 
   d3.csv("data/object_counts.csv", function(counts){
@@ -39,12 +40,18 @@ var barCounts = [];
       }
     }
     setNodes(allYears);
+
     //resetNodes(allYears);
     //console.log(allYears.length);
     //console.log("length " + twenties[3].value);
   });
 
-
+  d3.csv("data/image_urls.csv", function(urls){
+    for (var i=0; i < urls.length; i ++){
+      imgUrls.push(urls[i]);
+    }
+  });
+  console.log("imgurls " + imgUrls);
 
 var width= window.innerWidth;
 //var height=window.innerHeight/ 2;
@@ -114,47 +121,6 @@ function objectBars(barcount) {
    });
 }
 
-function setImgUrl(id) {
-  var url = 'https://collectionapi.metmuseum.org/api/collection/v1/object/' + id;
-  //var noImg = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7aloV4xbHXsO942_Gr1dGGl18Quq_cWD4AcpIudDEdSakgjFE';
-
-  var load = d3.xhr(url)
-  .mimeType("application/json")
-  .header("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoibWNjYWMyOTBAbmV3c2Nob29sLmVkdSIsInBlcm1pc3Npb25zIjp7InByb3ZlbmFuY2UiOmZhbHNlLCJ3ZWJMYWJlbCI6ZmFsc2V9LCJleHAiOjQ2NzgxNzgzODV9.HhOOmPn9LVY5C8A0HYKIHqTKIt9RV0ScrwnGfn8P0ag")
-  .get(function(error, data){
-      if (error) throw error;
-     // console.log("data " + data); 
-      
-      var payload = JSON.parse(data.response); 
-     var imgurl = payload.media.images.primaryImage.imageUrl;
-      console.log("url " + imgurl);
-
-     })
-   }
-      //console.log("url " + imgurl);
-
-
-      //var imgUrl = [];
-    
-      /*
-      for (var i=0; i<=payload.media.images.additionalImages.length-1; i++)
-      {
-       imgUrl.push(payload.media.images.additionalImages[i]);   
-      }
-      console.log(imgUrl);
-      
-      d3.select('#viz1')
-      .style('background-color', 'lightpink')
-      .selectAll('div.imgcont')
-      .data(imgUrl)
-      .enter()
-          .append('div')
-          .attr('class', 'imgcont')
-          .append('img')
-          .attr('src', function(data){return data.imageUrl})
-  */
-
-
 
 function setNodes(current){ //array of data for decade/location pressed
  d3.select('#bc-type')
@@ -179,7 +145,13 @@ var new_nodes = d3.range(1).map(function() {  // sets the # of circles to create
   var x_offset = ((current[j].value - 1900) * 18); // x offset for decade sort
   //var x_offset = (current[j].value - 1920) * 100;  //offset for years - set variable for decade call
   //console.log("offset" + x_offset);
-  var true_y = (norm()* 30)+ 300; // *num set distribution on y-axis+ num sets vertical axis from top > can set to variable with css
+  var true_y = (norm()*50)+ 250; // *num set distribution on y-axis+ num sets vertical axis from top > can set to variable with css
+
+  //var url = imgUrls[j].url;
+
+ 
+
+  
   return {
     year: current[j].value,
     type: current[j].id,
@@ -189,6 +161,7 @@ var new_nodes = d3.range(1).map(function() {  // sets the # of circles to create
     y: true_y,
     true_x: x_offset - 100, 
     true_y: true_y
+    //url:  url
     }
   });
    nodes = nodes.concat(new_nodes);
@@ -253,6 +226,8 @@ svg.selectAll("circle")
            return "staff" ;
          }
       })
+      
+   
 
       /*
         if (d.year > 1938 && d.year <= 1941) {
@@ -277,6 +252,7 @@ svg.selectAll("circle")
       })
       */
     .on("mouseover", function(d) {
+            var temp = d3.selectAll('.tooltip')   
             var left = d3.event.pageX;
             var top = d3. event.pageY;
             var imgurl = "";
@@ -289,23 +265,21 @@ svg.selectAll("circle")
                // console.log("data " + data);           
                var payload = JSON.parse(data.response); 
                var imgurl = payload.media.images.primaryImage.imageUrl; 
-              div.transition()    
-                .duration(500)    
-                .style("opacity", .9)
-               div.html('<img class="image-tooltip" src="'+ imgurl + '"/>' + "</br>" +  d.title + "</br>" + d.year + " | " + d.type)
-                .transition()
-                .duration(200)    
+                temp.html('<img class="image-tooltip" src="'+ imgurl + '"/>' + "</br>" +  d.title + "</br>" + d.year + " | " + d.type)
+                temp.transition()
+                .duration(500)
                 .style("left", (left + 5) + "px")   
                 .style("top", (top - 28) + "px")
-                .style("opacity", .9);
+                .style("opacity", .9)
               })
             })     
-        .on("mouseout", function(d) {   
-            div.transition()    
-                .duration(100)    
-                .style("opacity", 0);
-            d3.select(this)
-            .style("fill", "#cdcdcd")
+        .on("mouseout", function(d) {  
+            var temp = d3.selectAll('.tooltip') 
+             temp.transition()
+                  .duration(500)
+                  .style("opacity", 0)
+                  temp.html('')
+           
         });
 
 

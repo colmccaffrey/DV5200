@@ -8,6 +8,13 @@ body {
 
     }
 
+.circles {
+	width: 10px;
+	height: 10px;
+	display: block;
+	background-color: #fff;
+
+}
 
  @keyframes fadeInLoad {
         from {
@@ -37,6 +44,7 @@ body {
     bottom: 50px;
     width: 180px;
     font-size: 10px;
+    color: #888;
 }
 
 #year-nav li {
@@ -55,8 +63,9 @@ body {
 	height: 100vh;
 	left: 0;
 	top: 0;
-	background-color: #fff;
+	background-color: #212121;
 	position: absolute;
+	color: #fff;
 }
 #decades {
 	position: absolute;
@@ -67,8 +76,8 @@ body {
     height: 30px;
     margin-right: 62px;
     background-color: #000;
-    color: #888;
-    border-bottom: 2px solid #888;
+    color: #333;
+    border-bottom: 2px solid #333;
     border-top: none;
     border-right: none;
     border-left: 1px solid #212121;
@@ -85,14 +94,16 @@ body {
 	align-content: right;
 	right: 0;
 	position: absolute;
-	color: #000;
+	color: #eee;
 }
 
 .btn.active, .btn:hover {
-	border-bottom: 2px solid #fff;
-	color: #fff;
-	font-size: 18px;
-
+	padding-left: 62px;
+	border-bottom: 2px solid #eee;
+	border-left: 1px solid #eee;
+	color: #eee;
+	font-size: 16px;
+	font-weight: 400;
 }
 /*
 #location li:hover::after{
@@ -123,11 +134,12 @@ div.tooltip {
 	
 }
 h1, h2, h3 {
-	color: #212121;
+	color: #000;
 	font-family: "Kepler Std Display";
 }
+
 h1 {
-border-top: 4px solid #212121;
+border-top: 4px solid #000;
 font-size: 56px;
 margin-left: 10px;
 line-height: 38px;
@@ -142,7 +154,7 @@ li.count:hover::after {
 	align-content: right;
 	right: 0;
 	position: absolute;
-	color: #000;
+	color: #eee;
 }
 
 #bc-type {
@@ -198,18 +210,22 @@ ul#location  {
 }
 
 #location li {
-	border-top: 1px solid black;
+	border-top: 0.5px solid #151515;
 }
 #location li button {
 	border: none;
 	outline: none;
-	background-color: none;
+	background-color: #212121;
+	color: #888;
 	font-style: italic;
 	padding: 0px;
 	width: 100%;
 	text-align: left;
 }
 
+#location li button:hover {
+	color: #eee;
+}
 /*
 #location li.side button:hover::after {
 	content: ">";
@@ -261,6 +277,11 @@ a, a:hover {
 	background-color: rgba(0,0,0,.6);
 
 }
+
+svg {
+	margin-top: 60px;
+}
+
 p, svg {
 	opacity: 1;
 	animation-name: fadeInOpacity;
