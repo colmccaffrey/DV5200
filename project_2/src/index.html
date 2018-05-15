@@ -6,6 +6,13 @@
      <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css"
      integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
      crossorigin=""/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Slab:600" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.js"></script>
     <style> 
     </style>
 
@@ -33,16 +40,21 @@
     </style>
   </head>
   <body>
-      <div id="welcome">
-        <h2>Finding the 36 [Google Street] Views of Mount Fuji</h2>
+    <div id="welcome">
+      <div id="welcome-text">
+       <h2>Finding the 36 [Google Street] Views of Mount Fuji</h2>
         <p>The series "Thirty-six Views of Mount Fuji" (富嶽三十六景 Fugaku Sanjūrokkei) is a series of landscape prints by the Japanese ukiyo-e artist Katsushika Hokusai (1760–1849).
         </p>
+        <p>
         The term ukiyo-e (浮世絵) translates as "picture of the floating world". Each of the designs show the sacred Mount Fuji - either very visible or sometimes as a small detail in the background. The series is a landmark in Japanese woodblock printmaking of the 19th century.
         </p>
         <p>This project explores the first thirty-six designs of the series and their possible corresponding geolocations, experienced through Google Street Views.</p>
-        <span id="sources">data sources: The Metropolitan Museum of Art, Google Maps API, Kotodamaya, and Wikipedia</span></br>
-        <h2>ENTER</h2>
-      </br>
+          <span id="sources">data sources: The Metropolitan Museum of Art, Google Maps API, Kotodamaya, and Wikipedia</span></br>
+        </br>
+          <button class="ui massive button" onclick="location.href='#container'">
+             ENTER
+          </button>
+        </div>
       </div>
     <div id="container">
       <div id="background-gpan-cover"></div>
@@ -63,6 +75,6 @@
     </script>-->
  
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDSS3noGc-eRdeWVIlzJiVW5eJDmawnhhE">
-    </script>
+  </script>
   </body>
 </html>

@@ -25,8 +25,8 @@ function preload() {
   var data = 'https://colmccaffrey.github.io/DV5200/project_2/src/data/collectionlisting-thirty-six-views.json';
   images = loadJSON(data);
   //console.log(images);
-  //var gdata = "/src/data/street-view-gallery.json";
-  var gdata = "https://colmccaffrey.github.io/DV5200/project_2/src/data/street-view-gallery.json";
+  //var gdata = "/src/data/street-view-gallery.json"
+  var gdata = "data/street-view-gallery.json"
   gviews = loadJSON(gdata);
   console.log(gviews);
 

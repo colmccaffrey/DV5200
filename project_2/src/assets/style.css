@@ -1,17 +1,47 @@
  body, html {
-    font-family: "MetSans","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
     font-weight: 400;
     font-style: normal;
     font-size: 16px;
     line-height: 1.4;
     color: #1a1a1a;
     /*-webkit-font-smoothing: antialiased;*/
-    /*background-color: #212121;*/
-     margin: 0;
+    background-color: #fff;
+    margin: 0;
 
     height: 100%;
         padding: 0;
     } 
+    h1, h2, h3, h4, h5 {
+      font-family:'Josefin Slab', serif;
+
+    }
+    #welcome-text h2 {
+      font-size: 2.7rem;
+      margin-bottom: 50px;
+      text-align: center;
+      padding-left: 10%;
+      padding-right: 10%;
+
+      }
+
+    #welcome-text {
+    background-color: #2F4E6A;
+    padding: 60px 40px;
+    margin-left: 15%;
+    margin-right: 15%;
+    text-align: center;
+    }
+     #welcome-text p {
+        padding-left: 10%;
+      padding-right: 10%;
+      text-align: left;
+      font-size: .9rem
+    }
+
+    #welcome-text button {
+      text-align: center;
+    }
     #container {
        display: flex;
        margin: 0;
@@ -69,7 +99,7 @@
       position: fixed;
       top: 0;
       left: 0;
-      width: 300px;
+      width: 350px;
       height: 100vh;
       padding-top: 180px;
       padding-left: 25px;
@@ -113,19 +143,21 @@
       left: auto;
     }
     #welcome {
-      background-color: #ffffff;
-      color: #212121;
+      color: #F0F2F2;
       opacity: 1;
-      padding-top: 5%;
-      padding-left: 20%;
-      padding-right: 20%;
-      padding-bottom: 20%;
       font-weight: 200;
       font-size: 22px;
-      margin-top: 0;
+      margin: 0;
+      height: 100vh;
+      width: 100vw;
+      background-color: #ffffff;
+      padding-top: 3.2rem;
     }
-    #sources {
-      font-size: 16px;
+
+     #sources {
+      font-size: .8rem;
+      text-align: left;
+      font-style: italic; 
 
     }
      h2 {
